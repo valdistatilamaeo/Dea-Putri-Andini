@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Profesional Dea Putri Andini - Spesialis Pengendalian Mutu Operasional, Digitalisasi Kearsipan Keuangan, & Inventory Control.">
+    <meta name="keywords" content="Dea Putri Andini, Portfolio, Operations Management, Quality Control, Financial Digitalization, Inventory Control, ERM Analysis">
+    <title>Dea Putri Andini | Operations & Financial Management Specialist</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Boxicons CDN -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Particle Background Canvas -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation Header -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span class="logo-badge">DPA</span>
+                <span class="logo-text">Dea Putri Andini</span>
+            </a>
+            
+            <nav class="nav-links" id="nav-links">
+                <a href="#about" class="nav-item active" data-i18n="nav_about">Tentang</a>
+                <a href="#projects" class="nav-item" data-i18n="nav_projects">Proyek & Portfolio</a>
+                <a href="#skills" class="nav-item" data-i18n="nav_skills">Keahlian</a>
+                <a href="#contact" class="nav-item" data-i18n="nav_contact">Kontak</a>
+            </nav>
+
+            <div class="nav-controls">
+                <!-- Language Switcher -->
+                <button class="control-btn lang-btn" id="lang-toggle" title="Switch Language">
+                    <i class='bx bx-globe'></i>
+                    <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Theme Switcher -->
+                <button class="control-btn theme-btn" id="theme-toggle" title="Switch Theme">
+                    <i class='bx bx-sun' id="theme-icon"></i>
+                </button>
+
+                <!-- Mobile Menu Button -->
+                <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
+                    <i class='bx bx-menu' id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class='bx bx-check-shield'></i>
+                    <span data-i18n="hero_badge">Operations & Control Specialist</span>
+                </div>
+                <h1 class="hero-title">
+                    <span data-i18n="hero_title_1">Mengoptimalkan</span> 
+                    <span class="gradient-text" data-i18n="hero_title_2">Efisiensi Operasional & Manajemen Keuangan</span>
+                </h1>
+                <p class="hero-description" data-i18n="hero_desc">
+                    Spesialis dalam Pengendalian Mutu Produksi, Digitalisasi Kearsipan Administrasi Keuangan, serta Pengendalian Inventaris Berbasis Analisis Risiko (ERM) & Data Real-Time.
+                </p>
+                
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">
+                        <i class='bx bx-folder-open'></i>
+                        <span data-i18n="btn_explore_projects">Jelajahi Proyek</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class='bx bx-paper-plane'></i>
+                        <span data-i18n="btn_contact_me">Hubungi Saya</span>
+                    </a>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label" data-i18n="stat_projects">Proyek Utama</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="100">0</div>
+                        <span class="stat-unit">%</span>
+                        <div class="stat-label" data-i18n="stat_accuracy">Akurasi Laporan</div>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <div class="stat-number" data-target="4">0</div>
+                        <div class="stat-label" data-i18n="stat_mitigation">Mitigasi Risiko Utama</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="profile-card-wrapper">
+                    <div class="profile-card-glow"></div>
+                    <div class="profile-card">
+                        <img src="avatar.png" alt="Dea Putri Andini" class="profile-img">
+                        <div class="profile-info">
+                            <h3>Dea Putri Andini</h3>
+                            <p data-i18n="profile_role">Operational & Finance Specialist</p>
+                        </div>
+                        <div class="floating-badge badge-top-right">
+                            <i class='bx bx-trending-up'></i>
+                            <div>
+                                <strong data-i18n="badge_erm">Analisis ERM</strong>
+                                <small data-i18n="badge_efficiency">Efisiensi Evaluasi</small>
+                            </div>
+                        </div>
+                        <div class="floating-badge badge-bottom-left">
+                            <i class='bx bx-file'></i>
+                            <div>
+                                <strong data-i18n="badge_archiving">Digitalisasi Arsip</strong>
+                                <small data-i18n="badge_lpj">Akurasi LPJ</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle" data-i18n="about_subtitle">PROFIL PROFESIONAL</span>
+                <h2 class="section-title" data-i18n="about_title">Komitmen Terhadap Kualitas & Presisi Operasional</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card glass-card">
+                    <div class="about-icon">
+                        <i class='bx bx-slider-alt'></i>
+                    </div>
+                    <h3 data-i18n="card1_title">Pengendalian Mutu Produksi</h3>
+                    <p data-i18n="card1_desc">
+                        Memiliki keahlian mengawasi dan menganalisis alur produksi dari tahap cutting, penyablonan, penjahitan, hingga finishing dengan metode ERM untuk memetakan dan mengeliminasi risiko operasional.
+                    </p>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="about-icon">
+                        <i class='bx bx-archive-in'></i>
+                    </div>
+                    <h3 data-i18n="card2_title">Administrasi & Digitalisasi Arsip</h3>
+                    <p data-i18n="card2_desc">
+                        Berpengalaman mengelola administrasi internal instansi pemerintahan, mengklasifikasikan dokumen negara secara digital, dan menyusun Laporan Pertanggungjawaban (LPJ) secara sistematis.
+                    </p>
+                </div>
+
+                <div class="about-card glass-card">
+                    <div class="about-icon">
+                        <i class='bx bx-line-chart'></i>
+                    </div>
+                    <h3 data-i18n="card3_title">Inventory Control & Analytics</h3>
+                    <p data-i18n="card3_desc">
+                        Mengendalikan perputaran stok gudang retail secara real-time, meminimalkan selisih nilai opname barang, serta memanfaatkan data analisis transaksi harian untuk pengadaan barang presisi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Portfolio Section -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle" data-i18n="projects_subtitle">REKAM JEJAK KERJA</span>
+                <h2 class="section-title" data-i18n="projects_title">Proyek & Hasil Konkret</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="filter-wrapper">
+                <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Semua Proyek</button>
+                <button class="filter-btn" data-filter="quality" data-i18n="filter_quality">Pengendalian Mutu</button>
+                <button class="filter-btn" data-filter="finance" data-i18n="filter_finance">Keuangan & Arsip</button>
+                <button class="filter-btn" data-filter="inventory" data-i18n="filter_inventory">Inventory Control</button>
+            </div>
+
+            <!-- Project Cards Grid -->
+            <div class="projects-grid">
+
+                <!-- Project 1 -->
+                <div class="project-card glass-card" data-category="quality">
+                    <div class="project-tag">Oktober 2025 – Januari 2026</div>
+                    <div class="project-header">
+                        <div class="company-badge">Indogarment Pasir Honje Lamping</div>
+                        <h3 class="project-name" data-i18n="p1_title">Pengendalian Mutu & Operasional Produksi</h3>
+                    </div>
+                    <p class="project-summary" data-i18n="p1_summary">
+                        Mengawasi alur produksi garmen (cutting, sablon, penjahitan, finishing) serta memetakan 4 risiko operasional utama menggunakan skema rekapitulasi Excel & metode ERM.
+                    </p>
+                    <div class="project-highlights">
+                        <span class="highlight-badge"><i class='bx bx-check'></i> 4 Risiko Terpetakan</span>
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Metode ERM</span>
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Rekapitulasi Excel</span>
+                    </div>
+                    <button class="btn btn-outline btn-block open-modal-btn" data-modal="modal-p1">
+                        <span data-i18n="btn_detail">Lihat Detail Proyek</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card" data-category="finance">
+                    <div class="project-tag">Februari – Juni 2025</div>
+                    <div class="project-header">
+                        <div class="company-badge">Dinas Pemberdayaan Perempuan & Perlindungan Anak Kota Bandung</div>
+                        <h3 class="project-name" data-i18n="p2_title">Administrasi Keuangan & Digitalisasi Kearsipan</h3>
+                    </div>
+                    <p class="project-summary" data-i18n="p2_summary">
+                        Mengelola administrasi internal instansi, digitalisasi arsip dokumen negara secara sistematis, serta menyusun LPJ Keuangan bulanan hingga tahunan dengan akurasi tinggi.
+                    </p>
+                    <div class="project-highlights">
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Digitalisasi Arsip</span>
+                        <span class="highlight-badge"><i class='bx bx-check'></i> LPJ Keuangan Bulanan/Tahunan</span>
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Pencarian Berkas Cepat</span>
+                    </div>
+                    <button class="btn btn-outline btn-block open-modal-btn" data-modal="modal-p2">
+                        <span data-i18n="btn_detail">Lihat Detail Proyek</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card" data-category="inventory">
+                    <div class="project-tag">Januari – April 2019</div>
+                    <div class="project-header">
+                        <div class="company-badge">PT. Sumber Alfaria Trijaya Tbk</div>
+                        <h3 class="project-name" data-i18n="p3_title">Pengendalian Inventaris & Analisis Penjualan</h3>
+                    </div>
+                    <p class="project-summary" data-i18n="p3_summary">
+                        Mengendalikan perputaran stok gudang retail, memantau transaksi penjualan harian, serta mengoptimalkan manajemen stok real-time guna mencegah rugi opname.
+                    </p>
+                    <div class="project-highlights">
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Inventory Real-time</span>
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Pencegahan Rugi Opname</span>
+                        <span class="highlight-badge"><i class='bx bx-check'></i> Procurement Accuracy</span>
+                    </div>
+                    <button class="btn btn-outline btn-block open-modal-btn" data-modal="modal-p3">
+                        <span data-i18n="btn_detail">Lihat Detail Proyek</span>
+                        <i class='bx bx-right-arrow-alt'></i>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills & Tools Section -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle" data-i18n="skills_subtitle">KAPABILITAS KERJA</span>
+                <h2 class="section-title" data-i18n="skills_title">Keahlian & Alat Kerja</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="skills-wrapper">
+                <div class="skills-column glass-card">
+                    <h3><i class='bx bx-cog'></i> <span data-i18n="skill_group_1">Manajemen & Operasional</span></h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-i18n="s1">Pengendalian Mutu (Quality Control)</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-i18n="s2">Analisis Risiko ERM (Enterprise Risk Management)</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-i18n="s3">Pengendalian Inventaris (Inventory Control)</span>
+                                <span>92%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress" style="width: 92%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-column glass-card">
+                    <h3><i class='bx bx-data'></i> <span data-i18n="skill_group_2">Keuangan & Perangkat Lunak</span></h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-i18n="s4">Administrasi Keuangan & LPJ</span>
+                                <span>96%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress" style="width: 96%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-i18n="s5">Microsoft Excel & Olah Data Rekapitulasi</span>
+                                <span>94%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress" style="width: 94%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span data-i18n="s6">Digitalisasi & Manajemen Arsip Negara</span>
+                                <span>93%</span>
+                            </div>
+                            <div class="progress-bar"><div class="progress" style="width: 93%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-subtitle" data-i18n="contact_subtitle">KONEKSI & KOLABORASI</span>
+                <h2 class="section-title" data-i18n="contact_title">Mari Terhubung & Bekerja Sama</h2>
+                <div class="section-line"></div>
+            </div>
+
+            <div class="contact-wrapper">
+                <div class="contact-info glass-card">
+                    <h3 data-i18n="contact_info_title">Informasi Kontak</h3>
+                    <p data-i18n="contact_info_desc">
+                        Saya selalu terbuka untuk berdiskusi mengenai peluang kerja, proyek pengendalian operasional, maupun konsultasi manajemen keuangan.
+                    </p>
+
+                    <div class="contact-items">
+                        <div class="c-item">
+                            <div class="c-icon"><i class='bx bx-envelope'></i></div>
+                            <div>
+                                <small data-i18n="c_email">Email Profesional</small>
+                                <strong>deaputriandini@gmail.com</strong>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <div class="c-icon"><i class='bx bx-map'></i></div>
+                            <div>
+                                <small data-i18n="c_location">Lokasi</small>
+                                <strong>Bandung, Jawa Barat, Indonesia</strong>
+                            </div>
+                        </div>
+                        <div class="c-item">
+                            <div class="c-icon"><i class='bx bxl-linkedin'></i></div>
+                            <div>
+                                <small>LinkedIn</small>
+                                <strong>Dea Putri Andini</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form glass-card" id="contact-form">
+                    <div class="form-group">
+                        <label for="name" data-i18n="lbl_name">Nama Lengkap</label>
+                        <input type="text" id="name" required placeholder="Masukkan nama Anda">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="lbl_email">Alamat Email</label>
+                        <input type="email" id="email" required placeholder="email@domain.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-i18n="lbl_subject">Subjek Pesan</label>
+                        <input type="text" id="subject" required placeholder="Topik diskusi atau penawaran kerja">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="lbl_message">Isi Pesan</label>
+                        <textarea id="message" rows="4" required placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class='bx bx-send'></i>
+                        <span data-i18n="btn_send">Kirim Pesan</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-text">
+                &copy; 2026 <strong>Dea Putri Andini</strong>. All rights reserved.
+            </div>
+            <a href="#" class="back-to-top" aria-label="Back to top">
+                <i class='bx bx-up-arrow-alt'></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Modals for Project Details -->
+    <!-- Modal 1 -->
+    <div class="modal" id="modal-p1">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close"><i class='bx bx-x'></i></button>
+            <div class="modal-header">
+                <span class="modal-tag">Indogarment Pasir Honje Lamping (Okt 2025 – Jan 2026)</span>
+                <h2>Pengendalian Mutu & Operasional Produksi</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Deskripsi Pekerjaan:</h4>
+                <p>
+                    Mengawasi dan menganalisis seluruh alur produksi garmen, mulai dari tahap pemotongan bahan (cutting), penyablonan, penjahitan, hingga inspeksi akhir (finishing) guna memastikan mutu produk memenuhi standar ketat perusahaan.
+                </p>
+                <h4>Hasil & Pencapaian Utama:</h4>
+                <ul>
+                    <li><strong>Mitigasi Risiko Operasional:</strong> Berhasil mengidentifikasi serta memetakan 4 risiko operasional utama (bahan baku cacat, kesalahan cetak sablon, kerusakan mesin, dan keterlambatan distribusi).</li>
+                    <li><strong>Automasi Rekapitulasi Data:</strong> Menyusun skema rekapitulasi data produksi berbasis Microsoft Excel.</li>
+                    <li><strong>Penerapan Metode ERM:</strong> Menggunakan metode Enterprise Risk Management (ERM) untuk analisis data sehingga meningkatkan efisiensi evaluasi harian manajemen.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2 -->
+    <div class="modal" id="modal-p2">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close"><i class='bx bx-x'></i></button>
+            <div class="modal-header">
+                <span class="modal-tag">DP3A Kota Bandung (Feb – Juni 2025)</span>
+                <h2>Proyek Administrasi Keuangan & Digitalisasi Kearsipan</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Deskripsi Pekerjaan:</h4>
+                <p>
+                    Mengelola administrasi internal instansi pemerintahan, melaksanakan digitalisasi dokumen negara, serta menyusun laporan keuangan berkala secara transparan dan terstruktur.
+                </p>
+                <h4>Hasil & Pencapaian Utama:</h4>
+                <ul>
+                    <li><strong>Sistem Digitalisasi Arsip:</strong> Sukses mengklasifikasikan dan mendigitalisasi arsip dokumen negara secara sistematis sehingga mempercepat waktu pencarian berkas.</li>
+                    <li><strong>Penyusunan LPJ Akurat:</strong> Berhasil menyusun Laporan Pertanggungjawaban (LPJ) keuangan bulanan hingga tahunan dengan tingkat akurasi yang sangat tinggi.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3 -->
+    <div class="modal" id="modal-p3">
+        <div class="modal-overlay"></div>
+        <div class="modal-content glass-card">
+            <button class="modal-close"><i class='bx bx-x'></i></button>
+            <div class="modal-header">
+                <span class="modal-tag">PT. Sumber Alfaria Trijaya Tbk (Jan – Apr 2019)</span>
+                <h2>Pengendalian Inventaris (Inventory Control) & Analisis Penjualan</h2>
+            </div>
+            <div class="modal-body">
+                <h4>Deskripsi Pekerjaan:</h4>
+                <p>
+                    Mengendalikan perputaran serta ketersediaan stok barang di gudang retail dan memantau data transaksi penjualan harian.
+                </p>
+                <h4>Hasil & Pencapaian Utama:</h4>
+                <ul>
+                    <li><strong>Optimasi Stok Real-Time:</strong> Mengoptimalkan manajemen stok secara real-time untuk meminimalkan selisih nilai opname barang (pencegahan kerugian).</li>
+                    <li><strong>Analisis Penjualan & Pengadaan:</strong> Data analisis penjualan harian yang dihasilkan berhasil digunakan sebagai acuan akurat dalam pengadaan barang mingguan.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
