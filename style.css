@@ -175,49 +175,56 @@ body::after {
     filter: drop-shadow(0 0 24px rgba(226, 213, 199, 0.25));
 }
 
-/* 1. Hero / About Section (Top Left) */
-.silh-hero {
-    top: 2%;
-    left: 1%;
-    width: 460px;
-    height: 460px;
-    animation: floatSlow 18s ease-in-out infinite alternate;
+/* Dedicated Section Data Analytics Silhouettes (Guaranteed Visibility in ALL Sections) */
+section {
+    position: relative;
+    overflow: hidden;
 }
 
-/* 2. Education Section (Mid Right) */
-.silh-edu {
-    top: 22%;
-    right: 2%;
+.section-silhouette {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    color: rgba(150, 120, 100, 0.42);
+    filter: drop-shadow(0 0 24px rgba(150, 120, 100, 0.28));
+    transition: var(--transition);
+}
+
+[data-theme="dark"] .section-silhouette {
+    color: rgba(226, 213, 199, 0.35);
+    filter: drop-shadow(0 0 24px rgba(226, 213, 199, 0.28));
+}
+
+.silh-edu-bg {
+    top: 6%;
+    right: -2%;
     width: 440px;
     height: 440px;
-    animation: rotateSlow 50s linear infinite;
+    animation: rotateSlow 45s linear infinite;
 }
 
-/* 3. Work Experience Section (Mid Left) */
-.silh-exp {
-    top: 44%;
-    left: 2%;
+.silh-exp-bg {
+    top: 10%;
+    left: -2%;
     width: 450px;
     height: 450px;
-    animation: floatSlow 22s ease-in-out infinite alternate-reverse;
+    animation: floatSlow 20s ease-in-out infinite alternate-reverse;
 }
 
-/* 4. Skills Section (Mid Right) */
-.silh-skills {
-    top: 66%;
-    right: 3%;
+.silh-skills-bg {
+    top: 8%;
+    right: -2%;
     width: 450px;
     height: 450px;
-    animation: rotateSlow 45s linear infinite reverse;
+    animation: rotateSlow 40s linear infinite reverse;
 }
 
-/* 5. Contact Section (Bottom Left) */
-.silh-contact {
-    top: 86%;
-    left: 4%;
-    width: 380px;
-    height: 380px;
-    animation: floatSlow 20s ease-in-out infinite alternate;
+.silh-contact-bg {
+    bottom: -8%;
+    left: -2%;
+    width: 400px;
+    height: 400px;
+    animation: floatSlow 18s ease-in-out infinite alternate;
 }
 
 @keyframes floatSlow {
