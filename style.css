@@ -128,16 +128,7 @@ body::before {
 }
 
 body::after {
-    content: '';
-    position: fixed;
-    bottom: -150px;
-    left: -150px;
-    width: 520px;
-    height: 520px;
-    border-radius: 50%;
-    border: 2px solid rgba(61, 51, 45, 0.15);
-    z-index: -1;
-    pointer-events: none;
+    display: none;
 }
 
 [data-theme="dark"] body::before {
@@ -175,7 +166,7 @@ body::after {
     filter: drop-shadow(0 0 24px rgba(226, 213, 199, 0.25));
 }
 
-/* Dedicated Section Data Analytics Silhouettes (Guaranteed Visibility in ALL Sections) */
+/* Dedicated Section Data Analytics Silhouettes (Subtle, Elegant, 60 FPS Animated) */
 section {
     position: relative;
     overflow: hidden;
@@ -185,14 +176,48 @@ section {
     position: absolute;
     pointer-events: none;
     z-index: 0;
-    color: rgba(150, 120, 100, 0.42);
-    filter: drop-shadow(0 0 24px rgba(150, 120, 100, 0.28));
+    color: rgba(140, 110, 90, 0.22);
+    filter: drop-shadow(0 0 16px rgba(140, 110, 90, 0.12));
     transition: var(--transition);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 [data-theme="dark"] .section-silhouette {
-    color: rgba(226, 213, 199, 0.35);
-    filter: drop-shadow(0 0 24px rgba(226, 213, 199, 0.28));
+    color: rgba(226, 213, 199, 0.22);
+    filter: drop-shadow(0 0 18px rgba(226, 213, 199, 0.12));
+}
+
+.silh-hero-left {
+    top: 10%;
+    left: -2%;
+    width: 380px;
+    height: 380px;
+    animation: floatSlow 20s ease-in-out infinite alternate;
+}
+
+.silh-hero-right {
+    top: 12%;
+    right: -2%;
+    width: 360px;
+    height: 360px;
+    animation: rotateSlow 45s linear infinite;
+}
+
+.silh-about-left {
+    top: 10%;
+    left: -2%;
+    width: 420px;
+    height: 420px;
+    animation: floatSlow 22s ease-in-out infinite alternate-reverse;
+}
+
+.silh-about-right {
+    bottom: 5%;
+    right: -2%;
+    width: 440px;
+    height: 440px;
+    animation: rotateSlow 45s linear infinite;
 }
 
 .silh-edu-bg {
@@ -729,10 +754,12 @@ section {
 }
 
 /* --------------------------------------------------------------------------
-   6. Section Headers (Reference Style)
+   6. Section Headers (Guaranteed Center Alignment across Web & Mobile in EN/ID)
    -------------------------------------------------------------------------- */
 .section-header {
     margin-bottom: 3.5rem;
+    text-align: center !important;
+    width: 100%;
 }
 
 .section-subtitle {
@@ -743,6 +770,7 @@ section {
     display: block;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+    text-align: center !important;
 }
 
 .section-title {
@@ -753,6 +781,7 @@ section {
     color: var(--text-primary);
     text-transform: uppercase;
     margin-bottom: 0.75rem;
+    text-align: center !important;
 }
 
 .section-line {
@@ -760,7 +789,7 @@ section {
     height: 4px;
     background: var(--text-primary);
     border-radius: 2px;
-    margin: 0 auto;
+    margin: 0 auto !important;
 }
 
 /* --------------------------------------------------------------------------
@@ -788,6 +817,7 @@ section {
     font-size: 1.05rem;
     line-height: 1.85;
     color: var(--text-secondary);
+    text-align: justify;
 }
 
 .about-grid {
@@ -798,7 +828,6 @@ section {
 
 .about-card {
     padding: 2.25rem 1.75rem;
-    text-align: left;
 }
 
 .about-icon {
@@ -811,19 +840,21 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 1.8rem;
-    margin-bottom: 1.5rem;
+    margin: 0 auto 1.5rem auto;
     border: 1px solid rgba(216, 196, 182, 0.3);
 }
 
 .about-card h3 {
     font-size: 1.25rem;
     margin-bottom: 0.85rem;
+    text-align: center;
 }
 
 .about-card p {
     color: var(--text-secondary);
     font-size: 0.95rem;
     line-height: 1.6;
+    text-align: justify;
 }
 
 /* --------------------------------------------------------------------------
@@ -842,14 +873,18 @@ section {
 
 .edu-card, .cert-card {
     padding: 2.25rem;
+    text-align: center;
 }
 
 .card-header-flex {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    text-align: center;
     margin-bottom: 1.5rem;
-    flex-wrap: wrap;
+    padding-bottom: 1.15rem;
+    border-bottom: 1px dashed rgba(180, 160, 144, 0.35);
     gap: 0.5rem;
 }
 
@@ -857,7 +892,10 @@ section {
     font-size: 1.35rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 0.75rem;
+    margin-bottom: 0.2rem;
 }
 
 .card-header-flex h3 i, .cert-card h3 i {
@@ -865,18 +903,21 @@ section {
 }
 
 .edu-year-badge {
-    font-size: 0.85rem;
-    font-weight: 700;
-    padding: 0.35rem 0.9rem;
+    font-size: 0.88rem;
+    font-weight: 800;
+    padding: 0.4rem 1.25rem;
     border-radius: 50px;
-    background: var(--badge-bg);
-    color: var(--badge-text);
-    border: 1px solid var(--border-color);
+    background: #EFE6DD;
+    color: #1F1815;
+    border: 1px solid rgba(180, 160, 144, 0.4);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    display: inline-block;
 }
 
 .univ-title {
     font-size: 1.25rem;
     margin-bottom: 0.4rem;
+    text-align: center;
 }
 
 .degree-badge {
@@ -889,6 +930,7 @@ section {
     border-radius: 8px;
     margin-bottom: 1.5rem;
     border: 1px solid rgba(226, 213, 199, 0.3);
+    text-align: center;
 }
 
 .courses-title {
@@ -898,6 +940,8 @@ section {
     margin-bottom: 0.85rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 0.5rem;
 }
 
@@ -905,6 +949,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .course-tag {
@@ -937,6 +982,7 @@ section {
     gap: 1rem;
     align-items: center;
     justify-content: space-between;
+    text-align: left;
 }
 
 .cert-icon {
@@ -954,16 +1000,19 @@ section {
 
 .cert-info {
     flex-grow: 1;
+    text-align: left;
 }
 
 .cert-info h4 {
     font-size: 1.05rem;
     margin-bottom: 0.2rem;
+    text-align: left;
 }
 
 .cert-info p {
     color: var(--text-muted);
     font-size: 0.85rem;
+    text-align: left;
 }
 
 .cert-view-btn {
@@ -1091,6 +1140,7 @@ section {
 .timeline-content {
     padding: 2.25rem;
     border-radius: var(--radius-md);
+    text-align: left;
 }
 
 .timeline-date-chip {
@@ -1111,6 +1161,7 @@ section {
     font-size: 1.3rem;
     line-height: 1.3;
     margin-bottom: 1rem;
+    text-align: left;
 }
 
 .exp-bullet-list {
@@ -1126,6 +1177,8 @@ section {
     color: var(--text-secondary);
     display: flex;
     align-items: flex-start;
+    justify-content: flex-start;
+    text-align: justify;
     gap: 0.65rem;
     line-height: 1.6;
 }
@@ -1153,6 +1206,7 @@ section {
 
 .skills-column {
     padding: 2.5rem;
+    text-align: center;
 }
 
 .skills-column h3 {
@@ -1160,6 +1214,8 @@ section {
     margin-bottom: 1.75rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
     gap: 0.75rem;
 }
 
@@ -1176,6 +1232,7 @@ section {
 .skill-pill-item {
     display: flex;
     align-items: flex-start;
+    text-align: left;
     gap: 0.85rem;
     padding: 1.05rem 1.35rem;
     border-radius: var(--radius-sm);
@@ -1205,6 +1262,7 @@ section {
     color: #1F1815 !important;
     font-weight: 800;
     margin-bottom: 0.2rem;
+    text-align: left;
 }
 
 .skill-pill-item small {
@@ -1212,6 +1270,7 @@ section {
     font-size: 0.88rem;
     color: #3D332D !important;
     font-weight: 600;
+    text-align: left;
 }
 
 .skill-pill-item:hover strong,
@@ -1259,6 +1318,7 @@ section {
 .contact-card-centered h3 {
     font-size: 1.6rem;
     margin-bottom: 0.75rem;
+    text-align: center;
 }
 
 .contact-card-centered p {
@@ -1269,25 +1329,65 @@ section {
     margin-left: auto;
     margin-right: auto;
     line-height: 1.7;
+    text-align: center;
 }
 
 .contact-grid-clean {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.25rem 2rem;
-    text-align: left;
+    gap: 1.75rem;
+    text-align: center;
+    justify-items: center;
+    align-items: stretch;
+    margin-top: 2rem;
 }
 
 .c-item {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1.25rem;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.75rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: rgba(226, 213, 199, 0.08);
+    border: 1px solid rgba(216, 196, 182, 0.3);
+    width: 100%;
+    transition: var(--transition);
+}
+
+.c-item:hover {
+    transform: translateY(-5px);
+    background: var(--badge-bg);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.c-item small {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.c-item strong {
+    font-size: 0.98rem;
+    color: var(--text-primary);
+    text-align: center;
+    display: block;
+    word-break: break-word;
+    margin-bottom: 0.75rem;
 }
 
 .c-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: var(--radius-sm);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
     background: var(--badge-bg);
     color: var(--accent-color);
     display: flex;
@@ -1295,20 +1395,16 @@ section {
     justify-content: center;
     font-size: 1.5rem;
     flex-shrink: 0;
-    border: 1px solid rgba(216, 196, 182, 0.25);
+    border: 1px solid rgba(216, 196, 182, 0.35);
+    margin: 0 auto;
+    transition: var(--transition);
 }
 
-.c-item small {
-    display: block;
-    color: var(--text-muted);
-    font-size: 0.82rem;
-    font-weight: 600;
-    margin-bottom: 0.15rem;
-}
-
-.c-item strong {
-    font-size: 0.98rem;
-    color: var(--text-primary);
+.c-item:hover .c-icon {
+    background: #1F1815;
+    color: #ffffff;
+    border-color: #1F1815;
+    transform: scale(1.1);
 }
 
 .c-item strong a {
@@ -1721,6 +1817,43 @@ section {
 
     .back-to-top:hover {
         transform: translateY(-3px);
+    }
+
+    /* Mobile Viewport Rules: Titles Centered & Paragraphs Justified */
+    .section-header,
+    .section-title,
+    .section-subtitle,
+    .hero-title,
+    .hero-badge,
+    .about-card h3,
+    .card-header-flex h3,
+    .cert-card h3,
+    .project-name,
+    .skills-column h3,
+    .contact-card-centered h3,
+    .modal-header h2 {
+        text-align: center !important;
+    }
+
+    .section-line {
+        margin: 0 auto !important;
+    }
+
+    .hero-description,
+    .about-summary p,
+    .about-card p,
+    .timeline-content p,
+    .exp-bullet-list li,
+    .contact-card-centered p,
+    .modal-body p,
+    .modal-body li {
+        text-align: justify !important;
+        text-justify: inter-word;
+    }
+
+    .exp-bullet-list li {
+        align-items: flex-start;
+        justify-content: flex-start;
     }
 }
 
