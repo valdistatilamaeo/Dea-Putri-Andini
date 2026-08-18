@@ -56,8 +56,8 @@ function initParticles() {
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
             ctx.fillStyle = isDark
-                ? `rgba(224, 86, 253, ${this.alpha})`
-                : `rgba(108, 92, 231, ${this.alpha * 0.7})`;
+                ? `rgba(56, 189, 248, ${this.alpha})`
+                : `rgba(37, 99, 235, ${this.alpha * 0.7})`;
             ctx.fill();
             ctx.restore();
         }
@@ -83,8 +83,8 @@ function initParticles() {
                     ctx.lineTo(particles[j].x, particles[j].y);
                     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
                     ctx.strokeStyle = isDark
-                        ? `rgba(224, 86, 253, ${0.15 * (1 - dist / 120)})`
-                        : `rgba(108, 92, 231, ${0.1 * (1 - dist / 120)})`;
+                        ? `rgba(56, 189, 248, ${0.15 * (1 - dist / 120)})`
+                        : `rgba(37, 99, 235, ${0.1 * (1 - dist / 120)})`;
                     ctx.lineWidth = 0.6;
                     ctx.stroke();
                 }
@@ -141,59 +141,40 @@ function initTheme() {
 const translations = {
     id: {
         nav_about: "Tentang",
-        nav_projects: "Proyek & Portfolio",
+        nav_education: "Pendidikan & Sertifikasi",
+        nav_experience: "Pengalaman",
         nav_skills: "Keahlian",
         nav_contact: "Kontak",
-        hero_badge: "Spesialis Operasional & Pengendalian",
+        hero_badge: "S1 Manajemen Operasi | IPK 3.70",
         hero_title_1: "Mengoptimalkan",
         hero_title_2: "Efisiensi Operasional & Manajemen Keuangan",
-        hero_desc: "Spesialis dalam Pengendalian Mutu Produksi, Digitalisasi Kearsipan Administrasi Keuangan, serta Pengendalian Inventaris Berbasis Analisis Risiko (ERM) & Data Real-Time.",
-        btn_explore_projects: "Jelajahi Proyek",
+        hero_desc: "Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.",
+        btn_download_cv: "Unduh CV PDF",
         btn_contact_me: "Hubungi Saya",
-        stat_projects: "Proyek Utama",
-        stat_accuracy: "Akurasi Laporan",
-        stat_mitigation: "Mitigasi Risiko Utama",
-        profile_role: "Spesialis Operasional & Keuangan",
-        badge_erm: "Analisis ERM",
-        badge_efficiency: "Efisiensi Evaluasi",
-        badge_archiving: "Digitalisasi Arsip",
-        badge_lpj: "Akurasi LPJ",
+        stat_projects: "Pengalaman Utama",
+        stat_cert: "Sertifikat Lisensi",
         about_subtitle: "PROFIL PROFESIONAL",
         about_title: "Komitmen Terhadap Kualitas & Presisi Operasional",
-        card1_title: "Pengendalian Mutu Produksi",
-        card1_desc: "Memiliki keahlian mengawasi dan menganalisis alur produksi dari tahap cutting, penyablonan, penjahitan, hingga finishing dengan metode ERM untuk memetakan dan mengeliminasi risiko operasional.",
-        card2_title: "Administrasi & Digitalisasi Arsip",
-        card2_desc: "Berpengalaman mengelola administrasi internal instansi pemerintahan, mengklasifikasikan dokumen negara secara digital, dan menyusun Laporan Pertanggungjawaban (LPJ) secara sistematis.",
-        card3_title: "Inventory Control & Analytics",
-        card3_desc: "Mengendalikan perputaran stok gudang retail secara real-time, meminimalkan selisih nilai opname barang, serta memanfaatkan data analisis transaksi harian untuk pengadaan barang presisi.",
-        projects_subtitle: "REKAM JEJAK KERJA",
-        projects_title: "Proyek & Hasil Konkret",
-        filter_all: "Semua Proyek",
+        about_full_summary: "Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.",
+        card1_title: "Pengendalian Mutu & QC Garmen",
+        card1_desc: "Mengobservasi alur produksi garmen (cutting, sablon/bordir, jahit, QC, finishing), memantau kualitas produk, dan mengidentifikasi risiko operasional seperti bahan cacat dan kerusakan mesin.",
+        card2_title: "Keuangan & Digitalisasi Kearsipan",
+        card2_desc: "Mengelola administrasi penggajian & tunjangan (PNS, PPPK, Honorarium), menyusun LPJ Keuangan bulanan, triwulan, dan tahunan, serta mengelola kearsipan & digitalisasi dokumen.",
+        card3_title: "Inventory Control & Data Admin",
+        card3_desc: "Mengelola stok dan inventaris toko secara efisien, melakukan pencatatan keluar-masuk barang, menginput data administrasi, dan menganalisis data penjualan harian.",
+        projects_subtitle: "PENGALAMAN KERJA",
+        projects_title: "Pengalaman Magang & Kerja",
+        filter_all: "Semua Pengalaman",
         filter_quality: "Pengendalian Mutu",
         filter_finance: "Keuangan & Arsip",
         filter_inventory: "Inventory Control",
-        p1_title: "Pengendalian Mutu & Operasional Produksi",
-        p1_summary: "Mengawasi alur produksi garmen (cutting, sablon, penjahitan, finishing) serta memetakan 4 risiko operasional utama menggunakan skema rekapitulasi Excel & metode ERM.",
-        p2_title: "Administrasi Keuangan & Digitalisasi Kearsipan",
-        p2_summary: "Mengelola administrasi internal instansi, digitalisasi arsip dokumen negara secara sistematis, serta menyusun LPJ Keuangan bulanan hingga tahunan dengan akurasi tinggi.",
-        p3_title: "Pengendalian Inventaris & Analisis Penjualan",
-        p3_summary: "Mengendalikan perputaran stok gudang retail, memantau transaksi penjualan harian, serta mengoptimalkan manajemen stok real-time guna mencegah rugi opname.",
-        btn_detail: "Lihat Detail Proyek",
+        btn_detail: "Rincian Lengkap",
         skills_subtitle: "KAPABILITAS KERJA",
-        skills_title: "Keahlian & Alat Kerja",
-        skill_group_1: "Manajemen & Operasional",
-        skill_group_2: "Keuangan & Perangkat Lunak",
-        s1: "Pengendalian Mutu (Quality Control)",
-        s2: "Analisis Risiko ERM (Enterprise Risk Management)",
-        s3: "Pengendalian Inventaris (Inventory Control)",
-        s4: "Administrasi Keuangan & LPJ",
-        s5: "Microsoft Excel & Olah Data Rekapitulasi",
-        s6: "Digitalisasi & Manajemen Arsip Negara",
+        skills_title: "Keahlian (Skills)",
         contact_subtitle: "KONEKSI & KOLABORASI",
         contact_title: "Mari Terhubung & Bekerja Sama",
         contact_info_title: "Informasi Kontak",
-        contact_info_desc: "Saya selalu terbuka untuk berdiskusi mengenai peluang kerja, proyek pengendalian operasional, maupun konsultasi manajemen keuangan.",
-        c_email: "Email Profesional",
+        contact_info_desc: "Saya terbuka untuk peluang karir, posisi manajemen operasi, administrasi keuangan, quality control, maupun kerja sama profesional.",
         c_location: "Lokasi",
         lbl_name: "Nama Lengkap",
         lbl_email: "Alamat Email",
@@ -203,59 +184,40 @@ const translations = {
     },
     en: {
         nav_about: "About",
-        nav_projects: "Projects & Portfolio",
+        nav_education: "Education & Certifications",
+        nav_experience: "Experience",
         nav_skills: "Skills",
         nav_contact: "Contact",
-        hero_badge: "Operations & Control Specialist",
+        hero_badge: "Bachelor in Operations Management | GPA 3.70",
         hero_title_1: "Optimizing",
         hero_title_2: "Operational Efficiency & Financial Management",
-        hero_desc: "Specializing in Production Quality Control, Financial Administrative Archiving Digitalization, and Real-Time Risk-Based Inventory Control (ERM).",
-        btn_explore_projects: "Explore Projects",
+        hero_desc: "Bachelor's graduate in Operations Management with internship experience in financial administration, employee data management, document archiving, and report preparation. Possesses experience observing garment production workflows, quality monitoring, operational risk identification, and assisting QC from production to finishing. Communicative, detail-oriented, and able to work independently or in a team.",
+        btn_download_cv: "Download CV PDF",
         btn_contact_me: "Contact Me",
-        stat_projects: "Key Projects",
-        stat_accuracy: "Report Accuracy",
-        stat_mitigation: "Primary Risk Mitigations",
-        profile_role: "Operational & Finance Specialist",
-        badge_erm: "ERM Analysis",
-        badge_efficiency: "Evaluation Efficiency",
-        badge_archiving: "Archive Digitalization",
-        badge_lpj: "LPJ Accuracy",
+        stat_projects: "Key Experiences",
+        stat_cert: "Certifications",
         about_subtitle: "PROFESSIONAL PROFILE",
         about_title: "Commitment to Operational Quality & Precision",
-        card1_title: "Production Quality Control",
-        card1_desc: "Expertise in monitoring and analyzing production workflows from fabric cutting, screen printing, sewing, to finishing using ERM methodology to map and eliminate operational risks.",
-        card2_title: "Administration & Digital Archiving",
-        card2_desc: "Experienced in managing government agency internal administration, classifying state documents digitally, and compiling systematic Financial Accountability Reports (LPJ).",
-        card3_title: "Inventory Control & Analytics",
-        card3_desc: "Controlling retail warehouse stock turnover in real-time, minimizing stock count variances, and leveraging daily sales analytics data for precision procurement.",
-        projects_subtitle: "TRACK RECORD",
-        projects_title: "Key Projects & Deliverables",
-        filter_all: "All Projects",
+        about_full_summary: "Bachelor's graduate in Operations Management with internship experience in financial administration, employee data management, document archiving, and report preparation. Possesses experience observing garment production workflows, quality monitoring, operational risk identification, and assisting QC from production to finishing. Communicative, detail-oriented, and able to work independently or in a team.",
+        card1_title: "Quality Control & Garment QC",
+        card1_desc: "Observed garment production processes (cutting, printing/embroidery, sewing, QC, finishing), monitored product quality, and identified operational risks such as material defects and machinery downtime.",
+        card2_title: "Finance & Digital Archiving",
+        card2_desc: "Managed payroll and allowance administration (PNS, PPPK, Honorarium), prepared monthly/quarterly/annual LPJ reports, and managed document archiving & digitalization.",
+        card3_title: "Inventory Control & Data Admin",
+        card3_desc: "Managed store stock and inventory efficiently, monitored stock movements, updated administrative data, and analyzed daily sales records.",
+        projects_subtitle: "WORK TRACK RECORD",
+        projects_title: "Internship & Work Experience",
+        filter_all: "All Experiences",
         filter_quality: "Quality Control",
         filter_finance: "Finance & Archiving",
         filter_inventory: "Inventory Control",
-        p1_title: "Quality Control & Production Operations",
-        p1_summary: "Supervised garment production workflow and mapped 4 primary operational risks using Microsoft Excel data summarization and ERM methods.",
-        p2_title: "Financial Administration & Digital Archiving",
-        p2_summary: "Managed internal agency administration, systematic state document digitalization, and created highly accurate monthly/annual financial accountability reports.",
-        p3_title: "Inventory Control & Sales Analytics",
-        p3_summary: "Controlled retail warehouse inventory rotation, monitored daily transactions, and optimized real-time stock management to prevent stocktake loss.",
-        btn_detail: "View Project Details",
+        btn_detail: "View Full Details",
         skills_subtitle: "CAPABILITIES",
         skills_title: "Skills & Toolset",
-        skill_group_1: "Management & Operations",
-        skill_group_2: "Finance & Software",
-        s1: "Quality Control (QC)",
-        s2: "Enterprise Risk Management (ERM)",
-        s3: "Inventory Control",
-        s4: "Financial Administration & LPJ",
-        s5: "Microsoft Excel & Data Summarization",
-        s6: "State Archive Digitalization",
         contact_subtitle: "CONNECT & COLLABORATE",
         contact_title: "Let's Connect & Collaborate",
         contact_info_title: "Contact Info",
-        contact_info_desc: "Always open to discussing career opportunities, operational control initiatives, or financial management consultations.",
-        c_email: "Professional Email",
+        contact_info_desc: "Open for career opportunities in operations management, financial administration, quality control, or professional collaboration.",
         c_location: "Location",
         lbl_name: "Full Name",
         lbl_email: "Email Address",
@@ -364,7 +326,7 @@ function initProjectFilter() {
             projectCards.forEach(card => {
                 const category = card.getAttribute('data-category');
                 if (filterValue === 'all' || filterValue === category) {
-                    card.style.display = 'flex';
+                    card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
                 }
@@ -427,7 +389,7 @@ function showToast(message) {
 
     const toast = document.createElement('div');
     toast.className = 'toast';
-    toast.innerHTML = `<i class='bx bx-check-circle' style='color:#e056fd; font-size:1.4rem;'></i> <span>${message}</span>`;
+    toast.innerHTML = `<i class='bx bx-check-circle' style='color:#38bdf8; font-size:1.4rem;'></i> <span>${message}</span>`;
     
     container.appendChild(toast);
 
