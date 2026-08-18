@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLanguage();
     initNavigation();
     initStatCounters();
+    initScrollReveal();
     initProjectFilter();
     initModals();
     initContactForm();
@@ -363,35 +364,84 @@ function initNavigation() {
 }
 
 /* --------------------------------------------------------------------------
-   5. Stat Counters Animation
+   5. Smooth 60 FPS Stat Counters & Scroll Reveal Engine
    -------------------------------------------------------------------------- */
 function initStatCounters() {
+    const heroStats = document.querySelector('.hero-stats');
     const statNumbers = document.querySelectorAll('.stat-number');
-    let started = false;
+    let animated = false;
 
-    window.addEventListener('scroll', () => {
-        const heroSection = document.getElementById('hero');
-        if (!heroSection) return;
-        const rect = heroSection.getBoundingClientRect();
-        
-        if (rect.bottom >= 0 && !started) {
-            started = true;
+    function animateCounters() {
+        if (animated) return;
+        animated = true;
+
+        const duration = 1800; // 1.8 seconds smooth 60 FPS duration
+        const startTime = performance.now();
+
+        function update(now) {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easeProgress = 1 - Math.pow(1 - progress, 3); // Cubic ease-out
+
             statNumbers.forEach(stat => {
-                const target = parseInt(stat.getAttribute('data-target'));
-                let current = 0;
-                const increment = target / 30;
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        stat.textContent = target;
-                        clearInterval(timer);
-                    } else {
-                        stat.textContent = Math.ceil(current);
-                    }
-                }, 40);
+                const target = parseFloat(stat.getAttribute('data-target')) || 0;
+                const current = Math.floor(target * easeProgress);
+                stat.textContent = current;
             });
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            } else {
+                statNumbers.forEach(stat => {
+                    const target = stat.getAttribute('data-target');
+                    stat.textContent = target;
+                });
+            }
         }
+
+        requestAnimationFrame(update);
+    }
+
+    if (heroStats && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        observer.observe(heroStats);
+    } else {
+        setTimeout(animateCounters, 300);
+    }
+}
+
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.glass-card, .section-header, .timeline-item, .profile-card, .c-item, .cv-skill-pill');
+
+    revealElements.forEach(el => {
+        el.classList.add('reveal-on-scroll');
     });
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        });
+
+        revealElements.forEach(el => observer.observe(el));
+    } else {
+        revealElements.forEach(el => el.classList.add('revealed'));
+    }
 }
 
 /* --------------------------------------------------------------------------
