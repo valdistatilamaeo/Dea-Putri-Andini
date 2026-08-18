@@ -663,22 +663,9 @@ body::after {
     max-width: 380px;
 }
 
-/* Big "CREATIVE PORTFOLIO" Stroke Background Text (Image 3 Reference Style) */
+/* Big "CREATIVE PORTFOLIO" Stroke Background Text - Disabled per user request */
 .profile-card-wrapper::before {
-    content: 'CREATIVE PORTFOLIO';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 3.5rem;
-    white-space: nowrap;
-    -webkit-text-stroke: 1.5px rgba(61, 51, 45, 0.18);
-    color: transparent;
-    z-index: 0;
-    pointer-events: none;
-    letter-spacing: 3px;
+    display: none;
 }
 
 .profile-card {

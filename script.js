@@ -375,7 +375,7 @@ function initStatCounters() {
         if (animated) return;
         animated = true;
 
-        const duration = 1800; // 1.8 seconds smooth 60 FPS duration
+        const duration = 900; // 0.9s snappy, fast & smooth 60 FPS counter
         const startTime = performance.now();
 
         function update(now) {
