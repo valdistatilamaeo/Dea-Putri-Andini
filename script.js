@@ -56,8 +56,8 @@ function initParticles() {
             ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
             const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
             ctx.fillStyle = isDark
-                ? `rgba(56, 189, 248, ${this.alpha})`
-                : `rgba(37, 99, 235, ${this.alpha * 0.7})`;
+                ? `rgba(226, 213, 199, ${this.alpha * 0.8})`
+                : `rgba(61, 51, 45, ${this.alpha * 0.4})`;
             ctx.fill();
             ctx.restore();
         }
@@ -83,8 +83,8 @@ function initParticles() {
                     ctx.lineTo(particles[j].x, particles[j].y);
                     const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
                     ctx.strokeStyle = isDark
-                        ? `rgba(56, 189, 248, ${0.15 * (1 - dist / 120)})`
-                        : `rgba(37, 99, 235, ${0.1 * (1 - dist / 120)})`;
+                        ? `rgba(226, 213, 199, ${0.15 * (1 - dist / 120)})`
+                        : `rgba(61, 51, 45, ${0.08 * (1 - dist / 120)})`;
                     ctx.lineWidth = 0.6;
                     ctx.stroke();
                 }
@@ -108,31 +108,11 @@ function initParticles() {
 }
 
 /* --------------------------------------------------------------------------
-   2. Theme Switcher (Dark / Light)
+   2. Theme Engine (Single Dark Mode)
    -------------------------------------------------------------------------- */
 function initTheme() {
-    const themeBtn = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const savedTheme = localStorage.getItem('dpa_theme') || 'dark';
-
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-
-    themeBtn.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('dpa_theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
-
-    function updateThemeIcon(theme) {
-        if (theme === 'light') {
-            themeIcon.className = 'bx bx-moon';
-        } else {
-            themeIcon.className = 'bx bx-sun';
-        }
-    }
+    document.documentElement.setAttribute('data-theme', 'dark');
+    localStorage.setItem('dpa_theme', 'dark');
 }
 
 /* --------------------------------------------------------------------------
@@ -152,6 +132,7 @@ const translations = {
         btn_download_cv: "Unduh CV PDF",
         btn_contact_me: "Hubungi Saya",
         stat_projects: "Pengalaman Utama",
+        stat_gpa: "IPK Kelulusan (S1)",
         stat_cert: "Sertifikat Lisensi",
         about_subtitle: "PROFIL PROFESIONAL",
         about_title: "Komitmen Terhadap Kualitas & Presisi Operasional",
@@ -195,6 +176,7 @@ const translations = {
         btn_download_cv: "Download CV PDF",
         btn_contact_me: "Contact Me",
         stat_projects: "Key Experiences",
+        stat_gpa: "Graduation GPA (S1)",
         stat_cert: "Certifications",
         about_subtitle: "PROFESSIONAL PROFILE",
         about_title: "Commitment to Operational Quality & Precision",
@@ -241,7 +223,9 @@ function initLanguage() {
     });
 
     function applyLanguage(lang) {
-        langText.textContent = lang.toUpperCase();
+        if (langText) {
+            langText.textContent = lang === 'id' ? 'EN' : 'ID';
+        }
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
@@ -252,29 +236,74 @@ function initLanguage() {
 }
 
 /* --------------------------------------------------------------------------
-   4. Navigation & Scroll Handling
+   4. Navigation & Scroll Handling (Dynamic ScrollSpy)
    -------------------------------------------------------------------------- */
 function initNavigation() {
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const navLinks = document.getElementById('nav-links');
     const menuIcon = document.getElementById('menu-icon');
+    const navItems = document.querySelectorAll('.nav-item');
 
-    hamburgerBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-        if (navLinks.classList.contains('active')) {
-            menuIcon.className = 'bx bx-x';
-        } else {
-            menuIcon.className = 'bx bx-menu';
-        }
-    });
+    if (hamburgerBtn) {
+        hamburgerBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            if (navLinks.classList.contains('active')) {
+                menuIcon.className = 'bx bx-x';
+            } else {
+                menuIcon.className = 'bx bx-menu';
+            }
+        });
+    }
 
-    // Close menu when clicking nav items
-    document.querySelectorAll('.nav-item').forEach(link => {
+    // Close mobile menu & set active class on click
+    navItems.forEach(link => {
         link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-            menuIcon.className = 'bx bx-menu';
+            if (navLinks) navLinks.classList.remove('active');
+            if (menuIcon) menuIcon.className = 'bx bx-menu';
+
+            navItems.forEach(item => item.classList.remove('active'));
+            link.classList.add('active');
         });
     });
+
+    // Dynamic ScrollSpy: highlight section link based on scroll position
+    const sectionMap = [
+        { id: 'about', selector: '.nav-item[href="#about"]' },
+        { id: 'education', selector: '.nav-item[href="#education"]' },
+        { id: 'experience', selector: '.nav-item[href="#experience"]' },
+        { id: 'projects', selector: '.nav-item[href="#experience"]' },
+        { id: 'skills', selector: '.nav-item[href="#skills"]' },
+        { id: 'contact', selector: '.nav-item[href="#contact"]' }
+    ];
+
+    function handleScrollSpy() {
+        const scrollPos = window.scrollY + 220;
+        let activeLink = null;
+
+        for (let i = sectionMap.length - 1; i >= 0; i--) {
+            const sec = document.getElementById(sectionMap[i].id);
+            if (sec) {
+                const top = sec.offsetTop;
+                if (scrollPos >= top) {
+                    activeLink = document.querySelector(sectionMap[i].selector);
+                    break;
+                }
+            }
+        }
+
+        // Handle bottom of page (Contact section)
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 60) {
+            activeLink = document.querySelector('.nav-item[href="#contact"]');
+        }
+
+        if (activeLink) {
+            navItems.forEach(item => item.classList.remove('active'));
+            activeLink.classList.add('active');
+        }
+    }
+
+    window.addEventListener('scroll', handleScrollSpy);
+    handleScrollSpy();
 }
 
 /* --------------------------------------------------------------------------

@@ -23,6 +23,72 @@
     <!-- Canvas Background for Particles -->
     <canvas id="particle-canvas"></canvas>
 
+    <!-- Pure Data Analytics Silhouettes Background (Covering All Page Sections) -->
+    <div class="bg-silhouettes" aria-hidden="true">
+        <!-- 1. Hero / About Section: Analytics Dashboard Graph (Top Left) -->
+        <svg class="silhouette silh-hero" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M40 320 L110 240 L180 270 L260 160 L340 190 L440 80" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M40 320 L110 240 L180 270 L260 160 L340 190 L440 80 L440 350 L40 350 Z" fill="url(#analyticsGradient1)" opacity="0.18"/>
+            <circle cx="110" cy="240" r="6" fill="currentColor"/>
+            <circle cx="180" cy="270" r="6" fill="currentColor"/>
+            <circle cx="260" cy="160" r="7" fill="currentColor"/>
+            <circle cx="340" cy="190" r="6" fill="currentColor"/>
+            <circle cx="440" cy="80" r="9" fill="currentColor"/>
+            <line x1="40" y1="350" x2="460" y2="350" stroke="currentColor" stroke-width="1.5" opacity="0.4"/>
+            <line x1="40" y1="270" x2="460" y2="270" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+            <line x1="40" y1="190" x2="460" y2="190" stroke="currentColor" stroke-width="1" stroke-dasharray="4 4" opacity="0.3"/>
+            <defs>
+                <linearGradient id="analyticsGradient1" x1="240" y1="80" x2="240" y2="350" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="currentColor" stop-opacity="0.4"/>
+                    <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
+                </linearGradient>
+            </defs>
+        </svg>
+
+        <!-- 2. Education Section: Pie Chart & KPI Donut Analytics (Mid Right) -->
+        <svg class="silhouette silh-edu" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="225" cy="225" r="160" stroke="currentColor" stroke-width="2.5" stroke-dasharray="10 10"/>
+            <circle cx="225" cy="225" r="110" stroke="currentColor" stroke-width="2"/>
+            <path d="M225 225 L225 115 A110 110 0 0 1 335 225 Z" fill="currentColor" opacity="0.25"/>
+            <circle cx="225" cy="65" r="9" fill="currentColor"/>
+            <circle cx="385" cy="225" r="9" fill="currentColor"/>
+            <circle cx="225" cy="385" r="9" fill="currentColor"/>
+            <circle cx="65" cy="225" r="9" fill="currentColor"/>
+        </svg>
+
+        <!-- 3. Experience Section: Data Matrix & Pipeline Funnel (Mid Left) -->
+        <svg class="silhouette silh-exp" viewBox="0 0 450 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="40" y="220" width="40" height="120" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.4"/>
+            <rect x="110" y="160" width="40" height="180" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
+            <rect x="180" y="100" width="40" height="240" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.6"/>
+            <rect x="250" y="50" width="40" height="290" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.7"/>
+            <path d="M30 240 L110 180 L180 120 L250 70 L340 40" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8 8"/>
+            <circle cx="250" cy="70" r="7" fill="currentColor"/>
+            <circle cx="340" cy="40" r="9" fill="currentColor"/>
+        </svg>
+
+        <!-- 4. Skills Section: Data Nodes & Orbit Network (Mid Right) -->
+        <svg class="silhouette silh-skills" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="225" cy="225" r="140" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6"/>
+            <circle cx="225" cy="225" r="60" stroke="currentColor" stroke-width="2.5"/>
+            <line x1="225" y1="85" x2="225" y2="165" stroke="currentColor" stroke-width="2"/>
+            <line x1="365" y1="225" x2="285" y2="225" stroke="currentColor" stroke-width="2"/>
+            <line x1="225" y1="365" x2="225" y2="285" stroke="currentColor" stroke-width="2"/>
+            <line x1="85" y1="225" x2="165" y2="225" stroke="currentColor" stroke-width="2"/>
+            <circle cx="225" cy="85" r="10" fill="currentColor"/>
+            <circle cx="365" cy="225" r="10" fill="currentColor"/>
+            <circle cx="225" cy="365" r="10" fill="currentColor"/>
+            <circle cx="85" cy="225" r="10" fill="currentColor"/>
+        </svg>
+
+        <!-- 5. Contact Section: Data Growth & Target Mark (Bottom Left) -->
+        <svg class="silhouette silh-contact" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="200" cy="200" r="150" stroke="currentColor" stroke-width="2" stroke-dasharray="10 10"/>
+            <circle cx="200" cy="200" r="95" stroke="currentColor" stroke-width="2"/>
+            <path d="M160 200 L190 230 L250 170" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </div>
+
     <!-- Navigation Header -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
@@ -32,7 +98,7 @@
             </a>
             
             <nav class="nav-links" id="nav-links">
-                <a href="#about" class="nav-item active" data-i18n="nav_about">Tentang</a>
+                <a href="#about" class="nav-item" data-i18n="nav_about">Tentang</a>
                 <a href="#education" class="nav-item" data-i18n="nav_education">Pendidikan & Sertifikasi</a>
                 <a href="#experience" class="nav-item" data-i18n="nav_experience">Pengalaman Magang</a>
                 <a href="#skills" class="nav-item" data-i18n="nav_skills">Keahlian</a>
@@ -65,7 +131,7 @@
             <div class="hero-content">
                 <div class="hero-badge">
                     <i class='bx bx-sparkles'></i>
-                    <span>S1 Manajemen Operasi | IPK 3.70</span>
+                    <span data-i18n="hero_badge">S1 Manajemen Operasi | IPK 3.70</span>
                 </div>
                 <h1 class="hero-title">
                     <span data-i18n="hero_title_1">Mengoptimalkan</span> 
@@ -94,16 +160,25 @@
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <div class="stat-number-wrapper">
-                            <span class="stat-number" data-target="3">0</span>
-                            <span class="stat-unit">.70</span>
+                            <span class="stat-number" data-target="3">0</span><span class="stat-unit">.70</span>
                         </div>
-                        <div class="stat-label">IPK Kelulusan (S1)</div>
+                        <div class="stat-label" data-i18n="stat_gpa">IPK Kelulusan (S1)</div>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <div class="stat-number" data-target="6">0</div>
                         <div class="stat-label" data-i18n="stat_cert">Sertifikat Lisensi</div>
                     </div>
+                </div>
+
+                <!-- CV Key Skills Pill Bar under IPK -->
+                <div class="cv-skills-bar">
+                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> Quality Control (QC)</span>
+                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> LPJ Keuangan Bulanan</span>
+                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> Administrasi Perkantoran & Kearsipan</span>
+                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> Digitalisasi Dokumen</span>
+                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> SIKEP & MONIKA</span>
+                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> Inventory Control</span>
                 </div>
             </div>
 
@@ -115,7 +190,6 @@
                         </div>
                         <div class="profile-info">
                             <h3>Dea Putri Andini</h3>
-                            <p>S1 Manajemen Operasi</p>
                         </div>
                     </div>
                 </div>
@@ -447,7 +521,7 @@
                         <div class="skill-pill-item">
                             <i class='bx bx-check-circle'></i>
                             <div>
-                                <strong>K3 Lingkungan Kerja</strong>
+                                <strong>K3</strong>
                                 <small>K3 Lingkungan Kerja & Risk Identification</small>
                             </div>
                         </div>
@@ -469,28 +543,28 @@
                             <i class='bx bx-star'></i>
                             <div>
                                 <strong>Kemampuan Analitis</strong>
-                                <small>Pemetaan data & identifikasi risiko operasional</small>
+                                <small>Analytical Thinking & Operational Risk Identification</small>
                             </div>
                         </div>
                         <div class="skill-pill-item">
                             <i class='bx bx-star'></i>
                             <div>
                                 <strong>Teliti & Detail</strong>
-                                <small>Presisi tinggi dalam pengarsipan & LPJ keuangan</small>
+                                <small>Detail-Oriented & High Precision</small>
                             </div>
                         </div>
                         <div class="skill-pill-item">
                             <i class='bx bx-star'></i>
                             <div>
-                                <strong>Komunikasi Interpersonal</strong>
-                                <small>Komunikatif & empati dalam pelayanan</small>
+                                <strong>Komunikasi</strong>
+                                <small>Professional Communication & Empathy</small>
                             </div>
                         </div>
                         <div class="skill-pill-item">
                             <i class='bx bx-star'></i>
                             <div>
                                 <strong>Kolaborasi & Kerja Sama Tim</strong>
-                                <small>Mampu bekerja mandiri maupun dalam tim dinamis</small>
+                                <small>Teamwork & Cross-functional Collaboration</small>
                             </div>
                         </div>
                     </div>
