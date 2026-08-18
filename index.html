@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portofolio Profesional Dea Putri Andini - S1 Manajemen Operasi (IPK 3.70), Spesialis Pengendalian Mutu, Administrasi Keuangan, & Digitalisasi Kearsipan.">
+    <meta name="description" content="Portofolio Profesional Dea Putri Andini - Management Graduate | Operations & Supply Chain | Financial & Production Management | Data Analysis | Quality Control.">
     <meta name="keywords" content="Dea Putri Andini, Portfolio, Manajemen Operasi, Quality Control, LPJ Keuangan, Supply Chain Management, BNSP, K3">
     <title>Dea Putri Andini | Operations & Financial Management Specialist</title>
     
@@ -20,21 +20,23 @@
 </head>
 <body>
 
-    <!-- Canvas Background for Particles -->
+    <!-- Particle Background Canvas -->
     <canvas id="particle-canvas"></canvas>
 
-    <!-- Navigation Header -->
+    <!-- Dark Charcoal Header Navbar (EXACT MATCH TO SCREENSHOT 1) -->
     <header class="navbar" id="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
                 <span class="logo-badge">DPA</span>
-                <span class="logo-text">Dea Putri Andini</span>
+                <div class="logo-text-wrapper">
+                    <span class="logo-text">Dea Putri Andini</span>
+                </div>
             </a>
             
             <nav class="nav-links" id="nav-links">
-                <a href="#about" class="nav-item" data-i18n="nav_about">Tentang</a>
+                <a href="#about" class="nav-item active" data-i18n="nav_about">Tentang</a>
                 <a href="#education" class="nav-item" data-i18n="nav_education">Pendidikan & Sertifikasi</a>
-                <a href="#experience" class="nav-item" data-i18n="nav_experience">Pengalaman Magang</a>
+                <a href="#experience" class="nav-item" data-i18n="nav_experience">Pengalaman</a>
                 <a href="#skills" class="nav-item" data-i18n="nav_skills">Keahlian</a>
                 <a href="#contact" class="nav-item" data-i18n="nav_contact">Kontak</a>
             </nav>
@@ -46,11 +48,6 @@
                     <span id="lang-text">EN</span>
                 </button>
 
-                <!-- Theme Switcher -->
-                <button class="control-btn theme-btn" id="theme-toggle" title="Switch Theme">
-                    <i class='bx bx-sun' id="theme-icon"></i>
-                </button>
-
                 <!-- Mobile Menu Button -->
                 <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
                     <i class='bx bx-menu' id="menu-icon"></i>
@@ -59,341 +56,304 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="hero">
-        <svg class="section-silhouette silh-hero-left" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M40 320 L110 240 L180 270 L260 160 L340 190 L440 80" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M40 320 L110 240 L180 270 L260 160 L340 190 L440 80 L440 350 L40 350 Z" fill="url(#analyticsGradient1)" opacity="0.10"/>
-            <circle cx="110" cy="240" r="5" fill="currentColor"/>
-            <circle cx="180" cy="270" r="5" fill="currentColor"/>
-            <circle cx="260" cy="160" r="6" fill="currentColor"/>
-            <circle cx="340" cy="190" r="5" fill="currentColor"/>
-            <circle cx="440" cy="80" r="7" fill="currentColor"/>
-            <defs>
-                <linearGradient id="analyticsGradient1" x1="240" y1="80" x2="240" y2="350" gradientUnits="userSpaceOnUse">
-                    <stop stop-color="currentColor" stop-opacity="0.2"/>
-                    <stop offset="1" stop-color="currentColor" stop-opacity="0"/>
-                </linearGradient>
-            </defs>
-        </svg>
-        <svg class="section-silhouette silh-hero-right" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="225" cy="225" r="140" stroke="currentColor" stroke-width="2" stroke-dasharray="8 8"/>
-            <circle cx="225" cy="225" r="80" stroke="currentColor" stroke-width="1.5"/>
-            <circle cx="225" cy="85" r="6" fill="currentColor"/>
-            <circle cx="365" cy="225" r="6" fill="currentColor"/>
-        </svg>
+    <!-- SECTION 1 (#about): HERO 2-COLUMN LAYOUT & OPERATIONAL COMMITMENT SUB-SECTION -->
+    <section class="hero-section" id="about">
+        <!-- Decorative Pie Chart Silhouette Top Right -->
+        <div class="sec-bg-arch arch-right">
+            <svg viewBox="0 0 200 200" class="pie-chart-svg">
+                <path d="M100,100 L100,10 A90,90 0 0,1 190,129 Z" fill="var(--accent-arch)" opacity="0.45" />
+                <path d="M100,100 L190,129 A90,90 0 0,1 10,100 Z" fill="var(--accent-arch)" opacity="0.32" />
+                <path d="M100,100 L10,100 A90,90 0 0,1 47,27 Z" fill="var(--accent-arch)" opacity="0.22" />
+                <path d="M100,100 L47,27 A90,90 0 0,1 100,10 Z" fill="var(--accent-arch)" opacity="0.5" />
+                <circle cx="100" cy="100" r="42" fill="var(--bg-primary)" />
+            </svg>
+        </div>
 
-        <div class="container hero-container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <i class='bx bx-sparkles'></i>
-                    <span data-i18n="hero_badge">S1 Manajemen Operasi | IPK 3.70</span>
-                </div>
-                <h1 class="hero-title">
-                    <span data-i18n="hero_title_1">Mengoptimalkan</span> 
-                    <span class="gradient-text" data-i18n="hero_title_2">Efisiensi Operasional & Manajemen Keuangan</span>
-                </h1>
-                <p class="hero-description" data-i18n="hero_desc">
-                    Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.
-                </p>
+        <div class="container">
+            <!-- 2-Column Hero Profile Row -->
+            <div class="hero-2col-layout">
                 
-                <div class="hero-actions">
-                    <a href="Source/CV_Dea%20Putri%20Andini.pdf" download="CV_Dea_Putri_Andini.pdf" target="_blank" class="btn btn-primary">
-                        <i class='bx bx-download'></i>
-                        <span data-i18n="btn_download_cv">Unduh CV PDF</span>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <i class='bx bx-paper-plane'></i>
-                        <span data-i18n="btn_contact_me">Hubungi Saya</span>
-                    </a>
-                </div>
+                <!-- Left Column: Text, Headline & Action Buttons -->
+                <div class="hero-text-col">
+                    
+                    <h1 class="hero-headline" data-i18n="hero_headline_new">
+                        Lulusan Manajemen | Operasi & Rantai Pasok | Manajemen Keuangan & Produksi | Analisis Data | Pengendalian Mutu
+                    </h1>
+                    
+                    <p class="hero-summary" data-i18n="about_full_summary">
+                        Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.
+                    </p>
 
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="3">0</div>
-                        <div class="stat-label" data-i18n="stat_projects">Pengalaman Utama</div>
+                    <div class="hero-actions-flex">
+                        <a href="Source/CV_Dea%20Putri%20Andini.pdf" download="CV_Dea_Putri_Andini.pdf" target="_blank" class="btn btn-dark-charcoal">
+                            <i class='bx bx-download'></i>
+                            <span data-i18n="btn_download_cv">Unduh CV PDF</span>
+                        </a>
+                        <a href="#contact" class="btn btn-white-card">
+                            <i class='bx bx-paper-plane'></i>
+                            <span data-i18n="btn_contact_me">Hubungi Saya</span>
+                        </a>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-number-wrapper">
-                            <span class="stat-number" data-target="3">0</span><span class="stat-unit">.70</span>
+
+                    <!-- Quick Stats Counters Grid (ANIMATED COUNT-UP STATS) -->
+                    <div class="stats-counter-grid">
+                        <div class="stat-card-item">
+                            <div class="stat-number" data-target="3">0</div>
+                            <div class="stat-label" data-i18n="stat_projects">Pengalaman Utama</div>
                         </div>
-                        <div class="stat-label" data-i18n="stat_gpa">IPK Kelulusan (S1)</div>
+                        <div class="stat-card-item">
+                            <div class="stat-number" data-target="3.70">0.00</div>
+                            <div class="stat-label" data-i18n="stat_gpa">IPK Kelulusan (S1)</div>
+                        </div>
+                        <div class="stat-card-item">
+                            <div class="stat-number" data-target="6">0</div>
+                            <div class="stat-label" data-i18n="stat_cert">Sertifikat Lisensi</div>
+                        </div>
                     </div>
-                    <div class="stat-divider"></div>
-                    <div class="stat-item">
-                        <div class="stat-number" data-target="6">0</div>
-                        <div class="stat-label" data-i18n="stat_cert">Sertifikat Lisensi</div>
+
+                    <!-- 8 Key Competencies Row under IPK/Stats -->
+                    <div class="hero-key-skills-row">
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_scm">Supply Chain Management</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_fin_mgmt">Manajemen Keuangan</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_prod_mgmt">Production Management</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_data_analysis">Data Analysis</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_qc">Quality Control (QC)</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_risk_mgmt">Risk Management</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_office_admin">Administrasi Perkantoran</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_asset_doc">Manajemen Asset & Dokumentasi</span></span>
                     </div>
                 </div>
 
-                <!-- CV Key Skills Pill Bar under IPK -->
-                <div class="cv-skills-bar">
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_scm">Supply Chain Management</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_fin_mgmt">Manajemen Keuangan</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_prod_mgmt">Production Management</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_data_analysis">Data Analysis</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_qc">Quality Control (QC)</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_risk_mgmt">Risk Management</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_office_admin">Administrasi Perkantoran</span></span>
-                    <span class="cv-skill-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_asset_doc">Manajemen Asset & Dokumentasi</span></span>
+                <!-- Right Column: Square Minimal White Box Frame Photo Card with Clean Name Caption -->
+                <div class="hero-photo-col">
+                    <div class="hero-photo-card">
+                        <img src="Source/Foto.png" alt="Dea Putri Andini" class="hero-photo-img">
+                        <div class="hero-photo-caption">
+                            <h3 class="hero-photo-name">Dea Putri Andini</h3>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- SUB-SECTION (EXACT MATCH TO SCREENSHOT 2): KOMITMEN OPERASIONAL & 3 PILAR UTAMA -->
+            <div class="commitment-sub-section">
+                <div class="section-header-title">
+                    <h2 class="sec-title-uppercase" data-i18n="commitment_title">KOMITMEN TERHADAP KUALITAS & PRESISI OPERASIONAL</h2>
+                    <div class="sec-divider-dark"></div>
+                </div>
+
+                <!-- Full Bio Quote Card -->
+                <div class="quote-full-card">
+                    <i class='bx bxs-quote-left quote-large-icon'></i>
+                    <p data-i18n="about_full_summary">
+                        Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.
+                    </p>
+                </div>
+
+                <!-- 3 Operational Pillars Grid (EXACT MATCH TO SCREENSHOT 2) -->
+                <div class="pillars-3col-grid">
+                    <div class="pillar-card-tile">
+                        <div class="pillar-icon-box"><i class='bx bx-slider-alt'></i></div>
+                        <h3 data-i18n="card1_title_full">Pengendalian Mutu & QC Garmen</h3>
+                        <p data-i18n="card1_desc_full">Mengobservasi alur produksi garmen (cutting, sablon/bordir, jahit, QC, finishing), memantau kualitas produk, dan mengidentifikasi risiko operasional seperti bahan cacat dan kerusakan mesin.</p>
+                    </div>
+
+                    <div class="pillar-card-tile">
+                        <div class="pillar-icon-box"><i class='bx bx-archive-in'></i></div>
+                        <h3 data-i18n="card2_title_full">Keuangan & Digitalisasi Kearsipan</h3>
+                        <p data-i18n="card2_desc_full">Mengelola administrasi penggajian & tunjangan (PNS, PPPK, Honorarium), menyusun LPJ Keuangan bulanan, triwulan, dan tahunan, serta mengelola kearsipan & digitalisasi dokumen.</p>
+                    </div>
+
+                    <div class="pillar-card-tile">
+                        <div class="pillar-icon-box"><i class='bx bx-line-chart'></i></div>
+                        <h3 data-i18n="card3_title_full">Inventory Control & Data Admin</h3>
+                        <p data-i18n="card3_desc_full">Mengelola stok dan inventaris toko secara efisien, melakukan pencatatan keluar-masuk barang, menginput data administrasi, dan menganalisis data penjualan harian.</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="hero-visual">
-                <div class="profile-card-wrapper">
-                    <div class="profile-card">
-                        <div class="profile-img-container">
-                            <img src="Source/Foto.png" alt="Dea Putri Andini" class="profile-img">
-                        </div>
-                        <div class="profile-info">
-                            <h3>Dea Putri Andini</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" id="about">
-        <!-- Sci-Fi Data Analytics Silhouettes (Left & Right Margins for Uninterrupted Text Readability) -->
-        <svg class="section-silhouette silh-about-left" viewBox="0 0 450 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="40" y="220" width="35" height="120" rx="6" stroke="currentColor" stroke-width="2.5" opacity="0.4"/>
-            <rect x="110" y="160" width="35" height="180" rx="6" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
-            <rect x="180" y="100" width="35" height="240" rx="6" stroke="currentColor" stroke-width="2.5" opacity="0.6"/>
-            <path d="M30 240 L110 180 L180 120 L250 70" stroke="currentColor" stroke-width="3" stroke-dasharray="6 6"/>
-            <circle cx="250" cy="70" r="7" fill="currentColor"/>
-        </svg>
-
-        <svg class="section-silhouette silh-about-right" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="225" cy="225" r="150" stroke="currentColor" stroke-width="2" stroke-dasharray="8 8"/>
-            <circle cx="225" cy="225" r="85" stroke="currentColor" stroke-width="2.5"/>
-            <line x1="225" y1="75" x2="225" y2="160" stroke="currentColor" stroke-width="2"/>
-            <line x1="375" y1="225" x2="290" y2="225" stroke="currentColor" stroke-width="2"/>
-            <line x1="225" y1="375" x2="225" y2="290" stroke="currentColor" stroke-width="2"/>
-            <line x1="75" y1="225" x2="160" y2="225" stroke="currentColor" stroke-width="2"/>
-            <circle cx="225" cy="75" r="8" fill="currentColor"/>
-            <circle cx="375" cy="225" r="8" fill="currentColor"/>
-            <circle cx="225" cy="375" r="8" fill="currentColor"/>
-            <circle cx="75" cy="225" r="8" fill="currentColor"/>
-        </svg>
-
-        <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="about_subtitle">PROFIL PROFESIONAL</span>
-                <h2 class="section-title" data-i18n="about_title">Komitmen Terhadap Kualitas & Presisi Operasional</h2>
-                <div class="section-line"></div>
-            </div>
-
-            <div class="about-summary glass-card">
-                <div class="quote-icon"><i class='bx bxs-quote-left'></i></div>
-                <p data-i18n="about_full_summary">
-                    Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.
-                </p>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-card glass-card">
-                    <div class="about-icon">
-                        <i class='bx bx-slider-alt'></i>
-                    </div>
-                    <h3 data-i18n="card1_title">Pengendalian Mutu & QC Garmen</h3>
-                    <p data-i18n="card1_desc">
-                        Mengobservasi alur produksi garmen (cutting, sablon/bordir, jahit, QC, finishing), memantau kualitas produk, dan mengidentifikasi risiko operasional seperti bahan cacat dan kerusakan mesin.
-                    </p>
-                </div>
-
-                <div class="about-card glass-card">
-                    <div class="about-icon">
-                        <i class='bx bx-archive-in'></i>
-                    </div>
-                    <h3 data-i18n="card2_title">Keuangan & Digitalisasi Kearsipan</h3>
-                    <p data-i18n="card2_desc">
-                        Mengelola administrasi penggajian & tunjangan (PNS, PPPK, Honorarium), menyusun LPJ Keuangan bulanan, triwulan, dan tahunan, serta mengelola kearsipan & digitalisasi dokumen.
-                    </p>
-                </div>
-
-                <div class="about-card glass-card">
-                    <div class="about-icon">
-                        <i class='bx bx-line-chart'></i>
-                    </div>
-                    <h3 data-i18n="card3_title">Inventory Control & Data Admin</h3>
-                    <p data-i18n="card3_desc">
-                        Mengelola stok dan inventaris toko secara efisien, melakukan pencatatan keluar-masuk barang, menginput data administrasi, dan menganalisis data penjualan harian.
-                    </p>
-                </div>
-            </div>
+    <!-- SECTION 2 (#education): 2 SLIDE CARDS SHOWCASE (PENDIDIKAN & SERTIFIKASI RESMI) -->
+    <section id="education">
+        <!-- Decorative Pie Chart Silhouette Left -->
+        <div class="sec-bg-arch arch-left">
+            <svg viewBox="0 0 200 200" class="pie-chart-svg">
+                <path d="M100,100 L100,10 A90,90 0 0,1 190,129 Z" fill="var(--accent-arch)" opacity="0.45" />
+                <path d="M100,100 L190,129 A90,90 0 0,1 10,100 Z" fill="var(--accent-arch)" opacity="0.32" />
+                <path d="M100,100 L10,100 A90,90 0 0,1 47,27 Z" fill="var(--accent-arch)" opacity="0.22" />
+                <path d="M100,100 L47,27 A90,90 0 0,1 100,10 Z" fill="var(--accent-arch)" opacity="0.5" />
+                <circle cx="100" cy="100" r="42" fill="var(--bg-primary)" />
+            </svg>
         </div>
-    </section>
-
-    <!-- Education & Certifications Section -->
-    <section class="education-section" id="education">
-        <!-- Education Section Data Analytics Donut KPI Silhouette -->
-        <svg class="section-silhouette silh-edu-bg" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="225" cy="225" r="160" stroke="currentColor" stroke-width="2.5" stroke-dasharray="10 10"/>
-            <circle cx="225" cy="225" r="110" stroke="currentColor" stroke-width="2"/>
-            <path d="M225 225 L225 115 A110 110 0 0 1 335 225 Z" fill="currentColor" opacity="0.25"/>
-            <circle cx="225" cy="65" r="9" fill="currentColor"/>
-            <circle cx="385" cy="225" r="9" fill="currentColor"/>
-            <circle cx="225" cy="385" r="9" fill="currentColor"/>
-            <circle cx="65" cy="225" r="9" fill="currentColor"/>
-        </svg>
 
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="edu_subtitle">KUALIFIKASI AKADEMIK</span>
-                <h2 class="section-title" data-i18n="edu_title">Pendidikan & Sertifikasi Resmi</h2>
-                <div class="section-line"></div>
+            <div class="section-header-title">
+                <span class="sec-subtitle" data-i18n="edu_subtitle">KUALIFIKASI AKADEMIK & LISENSI RESMI</span>
+                <h2 class="sec-title" data-i18n="edu_card_title">Pendidikan Formal & Sertifikasi Resmi</h2>
+                <div class="sec-divider"></div>
             </div>
 
-            <div class="edu-cert-grid">
-                <!-- Education Card -->
-                <div class="glass-card edu-card">
-                    <div class="card-header-flex">
-                        <h3>
-                            <i class='bx bxs-graduation'></i>
-                            <span data-i18n="edu_card_title">Pendidikan Formal</span>
-                        </h3>
-                        <span class="edu-year-badge">2022 – 2026</span>
-                    </div>
+            <!-- 2 SLIDE CARDS SHOWCASE GRID -->
+            <div class="edu-cert-2slide-grid">
+                
+                <!-- SLIDE CARD KIRI: PENDIDIKAN FORMAL -->
+                <div class="slide-card-box">
+                    <div>
+                        <div class="slide-card-header">
+                            <h3>
+                                <i class='bx bxs-graduation'></i>
+                                <span data-i18n="edu_card_title">Pendidikan Formal</span>
+                            </h3>
+                            <span class="year-chip">2022 – 2026</span>
+                        </div>
 
-                    <div class="edu-body">
                         <h4 class="univ-title">Universitas Ekuitas Indonesia - Bandung</h4>
-                        <div class="degree-badge">S1 | Manajemen (Manajemen Operasi) — IPK 3.70 / 4.00</div>
-                        
-                        <div class="courses-wrapper">
-                            <h5 class="courses-title"><i class='bx bx-book-open'></i> <span data-i18n="courses_title">Fokus & Mata Kuliah Utama:</span></h5>
-                            <div class="course-tags">
-                                <span class="course-tag">Manajemen Operasional</span>
-                                <span class="course-tag">Supply Chain Management</span>
-                                <span class="course-tag">Perencanaan & Pengendalian</span>
-                                <span class="course-tag">Manajemen Risiko</span>
-                                <span class="course-tag">Manajemen Keuangan & Akuntansi</span>
-                                <span class="course-tag">Manajemen SDM</span>
-                                <span class="course-tag">Manajemen Pemasaran</span>
-                                <span class="course-tag">Analisis Bisnis & Statistika</span>
-                                <span class="course-tag">Pengolahan Data</span>
-                                <span class="course-tag">Sistem Informasi Manajemen</span>
-                                <span class="course-tag">Manajemen Strategis</span>
-                                <span class="course-tag">Riset Operasional</span>
-                                <span class="course-tag">Perilaku Organisasi</span>
-                                <span class="course-tag">Kewirausahaan</span>
-                                <span class="course-tag">Pengambilan Keputusan</span>
-                                <span class="course-tag">Evaluasi Kinerja</span>
-                            </div>
+                        <div class="degree-chip" data-i18n="edu_degree">S1 Manajemen (Manajemen Operasi) | IPK 3.70 / 4.00</div>
+                    </div>
+
+                    <div>
+                        <h5 class="courses-sub-title">
+                            <i class='bx bx-book-open'></i>
+                            <span data-i18n="courses_title">Fokus 10 Mata Kuliah Utama:</span>
+                        </h5>
+
+                        <!-- EXACTLY 10 Course Badges Grid -->
+                        <div class="course-10-grid">
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_1">1. Manajemen Operasional</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_2">2. Supply Chain Management</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_3">3. Perencanaan & Pengendalian</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_4">4. Manajemen Risiko</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_5">5. Keuangan & Akuntansi</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_6">6. Manajemen SDM</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_7">7. Analisis Bisnis & Statistika</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_8">8. Sistem Informasi Mgt</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_9">9. Riset Operasional</span></div>
+                            <div class="course-10-badge"><i class='bx bx-check-circle'></i> <span data-i18n="course_10">10. Pengambilan Keputusan</span></div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Certifications Card -->
-                <div class="glass-card cert-card">
-                    <h3>
-                        <i class='bx bxs-badge-check'></i>
-                        <span data-i18n="cert_card_title">Sertifikat Kompetensi & Pelatihan</span>
-                    </h3>
-                    <div class="cert-list">
-                        <div class="cert-item">
-                            <div class="cert-icon">
-                                <i class='bx bx-check-shield'></i>
-                            </div>
-                            <div class="cert-info">
-                                <h4>BNSP – Supply Chain Management</h4>
-                                <p data-i18n="cert1_desc">Sertifikat Kompetensi Kerja Standard</p>
-                            </div>
-                            <a href="Source/Sertifikat/Sertif%20BNSP%20Kompetensi_Dea%20Putri%20Andini.pdf" target="_blank" class="cert-view-btn" title="Lihat Sertifikat BNSP PDF">
-                                <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat</span>
-                            </a>
+                <!-- SLIDE CARD KANAN: SERTIFIKASI RESMI DIRECT PDF -->
+                <div class="slide-card-box">
+                    <div>
+                        <div class="slide-card-header">
+                            <h3>
+                                <i class='bx bxs-badge-check'></i>
+                                <span data-i18n="cert_card_title">Sertifikasi Resmi</span>
+                            </h3>
+                            <span class="cert-count-badge" data-i18n="cert_badge_count">6 Lisensi PDF</span>
                         </div>
 
-                        <div class="cert-item">
-                            <div class="cert-icon">
-                                <i class='bx bx-cog'></i>
+                        <!-- 6 Certifications 2-Column Grid inside Slide Card Kanan -->
+                        <div class="cert-grid-2col">
+                            
+                            <div class="cert-tile-compact">
+                                <div class="cert-tile-top">
+                                    <div class="cert-tile-icon"><i class='bx bx-check-shield'></i></div>
+                                    <div class="cert-tile-details">
+                                        <h4>BNSP – Supply Chain</h4>
+                                        <p data-i18n="cert1_desc">Sertifikat Kompetensi Standard</p>
+                                    </div>
+                                </div>
+                                <a href="Source/Sertifikat/Sertif%20BNSP%20Kompetensi_Dea%20Putri%20Andini.pdf" target="_blank" class="btn-cert-compact">
+                                    <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat PDF</span>
+                                </a>
                             </div>
-                            <div class="cert-info">
-                                <h4>Pelatihan Berbasis Kompetensi (PBK)</h4>
-                                <p data-i18n="cert2_desc">Klaster Pengelolaan Produksi</p>
-                            </div>
-                            <a href="Source/Sertifikat/Dea%20Putri%20-%20Sertifikat%20PBK%20Klaster%20Pengelolaan%20Produksi.pdf" target="_blank" class="cert-view-btn" title="Lihat Sertifikat PBK Klaster Pengelolaan Produksi PDF">
-                                <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat</span>
-                            </a>
-                        </div>
 
-                        <div class="cert-item">
-                            <div class="cert-icon">
-                                <i class='bx bx-hard-hat'></i>
+                            <div class="cert-tile-compact">
+                                <div class="cert-tile-top">
+                                    <div class="cert-tile-icon"><i class='bx bx-cog'></i></div>
+                                    <div class="cert-tile-details">
+                                        <h4>PBK Produksi</h4>
+                                        <p data-i18n="cert2_desc">Klaster Pengelolaan Produksi</p>
+                                    </div>
+                                </div>
+                                <a href="Source/Sertifikat/Dea%20Putri%20-%20Sertifikat%20PBK%20Klaster%20Pengelolaan%20Produksi.pdf" target="_blank" class="btn-cert-compact">
+                                    <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat PDF</span>
+                                </a>
                             </div>
-                            <div class="cert-info">
-                                <h4>BORNEO INDO SAFETY</h4>
-                                <p data-i18n="cert3_desc">K3 Lingkungan Kerja & Risk Identification</p>
-                            </div>
-                            <a href="Source/Sertifikat/K3%20Dea%20Putri%20Andini.pdf" target="_blank" class="cert-view-btn" title="Lihat Sertifikat K3 PDF">
-                                <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat</span>
-                            </a>
-                        </div>
 
-                        <div class="cert-item">
-                            <div class="cert-icon">
-                                <i class='bx bx-trending-up'></i>
+                            <div class="cert-tile-compact">
+                                <div class="cert-tile-top">
+                                    <div class="cert-tile-icon"><i class='bx bx-hard-hat'></i></div>
+                                    <div class="cert-tile-details">
+                                        <h4>Borneo Safety K3</h4>
+                                        <p data-i18n="cert3_desc">K3 Lingkungan Kerja & Risk ID</p>
+                                    </div>
+                                </div>
+                                <a href="Source/Sertifikat/K3%20Dea%20Putri%20Andini.pdf" target="_blank" class="btn-cert-compact">
+                                    <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat PDF</span>
+                                </a>
                             </div>
-                            <div class="cert-info">
-                                <h4>IDX – Sekolah Pasar Modal</h4>
-                                <p data-i18n="cert4_desc">Bursa Efek Indonesia Certification</p>
-                            </div>
-                            <a href="Source/Sertifikat/E-Sertifikat%20IBX%20SPM%20DEA.pdf" target="_blank" class="cert-view-btn" title="Lihat Sertifikat IDX SPM PDF">
-                                <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat</span>
-                            </a>
-                        </div>
 
-                        <div class="cert-item">
-                            <div class="cert-icon">
-                                <i class='bx bx-data'></i>
+                            <div class="cert-tile-compact">
+                                <div class="cert-tile-top">
+                                    <div class="cert-tile-icon"><i class='bx bx-trending-up'></i></div>
+                                    <div class="cert-tile-details">
+                                        <h4>IDX Pasar Modal</h4>
+                                        <p data-i18n="cert4_desc">Bursa Efek Indonesia Certification</p>
+                                    </div>
+                                </div>
+                                <a href="Source/Sertifikat/E-Sertifikat%20IBX%20SPM%20DEA.pdf" target="_blank" class="btn-cert-compact">
+                                    <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat PDF</span>
+                                </a>
                             </div>
-                            <div class="cert-info">
-                                <h4>Microsoft</h4>
-                                <p data-i18n="cert5_desc">Discover Data Analysis</p>
-                            </div>
-                            <a href="Source/Sertifikat/Dea%20Putri%20Andini%20-%20Discover%20Data%20Analysis.pdf" target="_blank" class="cert-view-btn" title="Lihat Sertifikat Microsoft Data Analysis PDF">
-                                <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat</span>
-                            </a>
-                        </div>
 
-                        <div class="cert-item">
-                            <div class="cert-icon">
-                                <i class='bx bx-bar-chart-alt-2'></i>
+                            <div class="cert-tile-compact">
+                                <div class="cert-tile-top">
+                                    <div class="cert-tile-icon"><i class='bx bx-data'></i></div>
+                                    <div class="cert-tile-details">
+                                        <h4>MS Data Analysis</h4>
+                                        <p data-i18n="cert5_desc">Discover Data Analysis</p>
+                                    </div>
+                                </div>
+                                <a href="Source/Sertifikat/Dea%20Putri%20Andini%20-%20Discover%20Data%20Analysis.pdf" target="_blank" class="btn-cert-compact">
+                                    <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat PDF</span>
+                                </a>
                             </div>
-                            <div class="cert-info">
-                                <h4>Microsoft</h4>
-                                <p data-i18n="cert6_desc">Get Started Building with Power BI</p>
+
+                            <div class="cert-tile-compact">
+                                <div class="cert-tile-top">
+                                    <div class="cert-tile-icon"><i class='bx bx-bar-chart-alt-2'></i></div>
+                                    <div class="cert-tile-details">
+                                        <h4>MS Power BI</h4>
+                                        <p data-i18n="cert6_desc">Building with Power BI</p>
+                                    </div>
+                                </div>
+                                <a href="Source/Sertifikat/Dea%20Putri%20Andini%20-%20Getting%20Started%20with%20Power%20BI.pdf" target="_blank" class="btn-cert-compact">
+                                    <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat PDF</span>
+                                </a>
                             </div>
-                            <a href="Source/Sertifikat/Dea%20Putri%20Andini%20-%20Getting%20Started%20with%20Power%20BI.pdf" target="_blank" class="cert-view-btn" title="Lihat Sertifikat Microsoft Power BI PDF">
-                                <i class='bx bx-show'></i> <span data-i18n="cert_view_btn">Lihat</span>
-                            </a>
+
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Experience Portfolio Section (Vertical Timeline) -->
-    <section class="projects-section" id="experience">
-        <!-- Experience Section Data Matrix & Pipeline Funnel Silhouette -->
-        <svg class="section-silhouette silh-exp-bg" viewBox="0 0 450 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="40" y="220" width="40" height="120" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.4"/>
-            <rect x="110" y="160" width="40" height="180" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.5"/>
-            <rect x="180" y="100" width="40" height="240" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.6"/>
-            <rect x="250" y="50" width="40" height="290" rx="8" stroke="currentColor" stroke-width="2.5" opacity="0.7"/>
-            <path d="M30 240 L110 180 L180 120 L250 70 L340 40" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-dasharray="8 8"/>
-            <circle cx="250" cy="70" r="7" fill="currentColor"/>
-            <circle cx="340" cy="40" r="9" fill="currentColor"/>
-        </svg>
+    <!-- SECTION 3 (#experience): PENGALAMAN MAGANG TIMELINE KANAN-KIRI GARIS TENGAH -->
+    <section id="experience">
+        <!-- Decorative Pie Chart Silhouette Right -->
+        <div class="sec-bg-arch arch-right">
+            <svg viewBox="0 0 200 200" class="pie-chart-svg">
+                <path d="M100,100 L100,10 A90,90 0 0,1 190,129 Z" fill="var(--accent-arch)" opacity="0.45" />
+                <path d="M100,100 L190,129 A90,90 0 0,1 10,100 Z" fill="var(--accent-arch)" opacity="0.32" />
+                <path d="M100,100 L10,100 A90,90 0 0,1 47,27 Z" fill="var(--accent-arch)" opacity="0.22" />
+                <path d="M100,100 L47,27 A90,90 0 0,1 100,10 Z" fill="var(--accent-arch)" opacity="0.5" />
+                <circle cx="100" cy="100" r="42" fill="var(--bg-primary)" />
+            </svg>
+        </div>
 
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="projects_subtitle">PENGALAMAN KERJA</span>
-                <h2 class="section-title" data-i18n="projects_title">Pengalaman Magang & Kerja</h2>
-                <div class="section-line"></div>
+            <div class="section-header-title">
+                <span class="sec-subtitle" data-i18n="projects_subtitle">REKAM JEJAK MAGANG & OPERASIONAL</span>
+                <h2 class="sec-title" data-i18n="projects_title">Pengalaman Magang & Kerja</h2>
+                <div class="sec-divider"></div>
             </div>
 
             <!-- Filter Buttons -->
@@ -404,45 +364,44 @@
                 <button class="filter-btn" data-filter="inventory" data-i18n="filter_inventory">Inventory Control</button>
             </div>
 
-            <!-- Vertical Timeline Container -->
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-
-                <!-- Timeline Item 1: CV Indogarment -->
-                <div class="timeline-item project-card" data-category="quality">
-                    <div class="timeline-dot"><i class='bx bx-briefcase-alt-2'></i></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date-chip">
+            <!-- Centered Line Alternating Timeline -->
+            <div class="timeline-centered">
+                
+                <!-- Timeline Item 1: Indogarment (LEFT) -->
+                <div class="timeline-item-centered left-item project-card" data-category="quality">
+                    <div class="timeline-node"><i class='bx bx-briefcase-alt-2'></i></div>
+                    <div class="timeline-box-card">
+                        <div class="timeline-date-tag">
                             <i class='bx bx-calendar'></i> November 2025 – Februari 2026
                         </div>
-                        <div class="company-badge">
+                        <div class="company-title">
                             <i class='bx bx-building-house'></i> CV Indogarment Pasir Honje Lamping – Bandung
                         </div>
-                        <h3 class="project-name" data-i18n="exp1_title">Asisten Kepala Produksi</h3>
+                        <h3 class="role-title" data-i18n="exp1_title">Asisten Kepala Produksi</h3>
                         <ul class="exp-bullet-list">
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp1_bullet_1">Mengobservasi & menganalisis alur produksi garmen (cutting, sablon/bordir, jahit, QC, finishing).</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp1_bullet_2">Memantau kualitas produk & melakukan QC sesuai standar perusahaan.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp1_bullet_3">Mengidentifikasi risiko operasional (cacat bahan, kerusakan mesin, keterlambatan).</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp1_bullet_4">Mengolah data produksi dengan MS Excel & berkoordinasi dalam evaluasi operasional.</span></li>
                         </ul>
-                        <button class="btn btn-outline btn-block open-modal-btn" data-modal="modal-p1">
+                        <button class="btn btn-dark-charcoal open-modal-btn" data-modal="modal-p1" style="width: 100%; margin-top: 0.5rem; font-size: 0.88rem;">
                             <span data-i18n="btn_detail">Rincian Lengkap</span>
                             <i class='bx bx-right-arrow-alt'></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Timeline Item 2: DP3A -->
-                <div class="timeline-item project-card" data-category="finance">
-                    <div class="timeline-dot"><i class='bx bx-folder-open'></i></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date-chip">
+                <!-- Timeline Item 2: DP3A (RIGHT) -->
+                <div class="timeline-item-centered right-item project-card" data-category="finance">
+                    <div class="timeline-node"><i class='bx bx-folder-open'></i></div>
+                    <div class="timeline-box-card">
+                        <div class="timeline-date-tag">
                             <i class='bx bx-calendar'></i> Februari – Juli 2025
                         </div>
-                        <div class="company-badge">
+                        <div class="company-title">
                             <i class='bx bx-building'></i> Dinas Pemberdayaan Perempuan Dan Perlindungan Anak – Bandung
                         </div>
-                        <h3 class="project-name" data-i18n="exp2_title">Unit Kepegawaian</h3>
+                        <h3 class="role-title" data-i18n="exp2_title">Unit Kepegawaian</h3>
                         <ul class="exp-bullet-list">
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp2_bullet_1">Mengelola administrasi penggajian & tunjangan (PNS, PPPK, Honorarium).</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp2_bullet_2">Menyusun LPJ keuangan bulanan, triwulan, & tahunan.</span></li>
@@ -450,31 +409,31 @@
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp2_bullet_4">Pelayanan & sosialisasi perlindungan perempuan & anak secara empatik.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp2_bullet_5">Membantu pemeliharaan inventaris & pencatatan Barang Milik Daerah (BMD).</span></li>
                         </ul>
-                        <button class="btn btn-outline btn-block open-modal-btn" data-modal="modal-p2">
+                        <button class="btn btn-dark-charcoal open-modal-btn" data-modal="modal-p2" style="width: 100%; margin-top: 0.5rem; font-size: 0.88rem;">
                             <span data-i18n="btn_detail">Rincian Lengkap</span>
                             <i class='bx bx-right-arrow-alt'></i>
                         </button>
                     </div>
                 </div>
 
-                <!-- Timeline Item 3: SAT -->
-                <div class="timeline-item project-card" data-category="inventory">
-                    <div class="timeline-dot"><i class='bx bx-store-alt'></i></div>
-                    <div class="timeline-content glass-card">
-                        <div class="timeline-date-chip">
+                <!-- Timeline Item 3: PT SAT (LEFT) -->
+                <div class="timeline-item-centered left-item project-card" data-category="inventory">
+                    <div class="timeline-node"><i class='bx bx-store-alt'></i></div>
+                    <div class="timeline-box-card">
+                        <div class="timeline-date-tag">
                             <i class='bx bx-calendar'></i> Januari – April 2019
                         </div>
-                        <div class="company-badge">
+                        <div class="company-title">
                             <i class='bx bx-store-alt'></i> PT. Sumber Alfaria Trijaya Tbk – Bengkulu
                         </div>
-                        <h3 class="project-name" data-i18n="exp3_title">Admin</h3>
+                        <h3 class="role-title" data-i18n="exp3_title">Admin</h3>
                         <ul class="exp-bullet-list">
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp3_bullet_1">Mengelola stok dan inventaris toko secara efisien.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp3_bullet_2">Pencatatan & monitoring keluar-masuk barang serta kesesuaian stok.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp3_bullet_3">Menginput & memperbarui data administrasi serta laporan penjualan.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp3_bullet_4">Menganalisis data penjualan untuk mendukung pengambilan keputusan.</span></li>
                         </ul>
-                        <button class="btn btn-outline btn-block open-modal-btn" data-modal="modal-p3">
+                        <button class="btn btn-dark-charcoal open-modal-btn" data-modal="modal-p3" style="width: 100%; margin-top: 0.5rem; font-size: 0.88rem;">
                             <span data-i18n="btn_detail">Rincian Lengkap</span>
                             <i class='bx bx-right-arrow-alt'></i>
                         </button>
@@ -485,153 +444,96 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills-section" id="skills">
-        <!-- Skills Section Data Orbit Network Silhouette -->
-        <svg class="section-silhouette silh-skills-bg" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="225" cy="225" r="140" stroke="currentColor" stroke-width="2" stroke-dasharray="6 6"/>
-            <circle cx="225" cy="225" r="60" stroke="currentColor" stroke-width="2.5"/>
-            <line x1="225" y1="85" x2="225" y2="165" stroke="currentColor" stroke-width="2"/>
-            <line x1="365" y1="225" x2="285" y2="225" stroke="currentColor" stroke-width="2"/>
-            <line x1="225" y1="365" x2="225" y2="285" stroke="currentColor" stroke-width="2"/>
-            <line x1="85" y1="225" x2="165" y2="225" stroke="currentColor" stroke-width="2"/>
-            <circle cx="225" cy="85" r="10" fill="currentColor"/>
-            <circle cx="365" cy="225" r="10" fill="currentColor"/>
-            <circle cx="225" cy="365" r="10" fill="currentColor"/>
-            <circle cx="85" cy="225" r="10" fill="currentColor"/>
-        </svg>
+    <!-- SECTION 4 (#skills): 1 SINGLE CARD CONTAINER (ATAS-BAWAH BADGE CHIPS) -->
+    <section id="skills">
+        <!-- Decorative Pie Chart Silhouette Left -->
+        <div class="sec-bg-arch arch-left">
+            <svg viewBox="0 0 200 200" class="pie-chart-svg">
+                <path d="M100,100 L100,10 A90,90 0 0,1 190,129 Z" fill="var(--accent-arch)" opacity="0.45" />
+                <path d="M100,100 L190,129 A90,90 0 0,1 10,100 Z" fill="var(--accent-arch)" opacity="0.32" />
+                <path d="M100,100 L10,100 A90,90 0 0,1 47,27 Z" fill="var(--accent-arch)" opacity="0.22" />
+                <path d="M100,100 L47,27 A90,90 0 0,1 100,10 Z" fill="var(--accent-arch)" opacity="0.5" />
+                <circle cx="100" cy="100" r="42" fill="var(--bg-primary)" />
+            </svg>
+        </div>
 
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="skills_subtitle">KAPABILITAS KERJA</span>
-                <h2 class="section-title" data-i18n="skills_title">Keahlian (Skills)</h2>
-                <div class="section-line"></div>
+            <div class="section-header-title">
+                <span class="sec-subtitle" data-i18n="skills_subtitle">KAPABILITAS OPERASIONAL & MANAJEMEN</span>
+                <h2 class="sec-title" data-i18n="skills_title">Keahlian (Skills & Toolset)</h2>
+                <div class="sec-divider"></div>
             </div>
 
-            <div class="skills-wrapper">
-                <!-- Hard Skills -->
-                <div class="skills-column glass-card">
-                    <h3><i class='bx bx-laptop'></i> <span>Hard Skills</span></h3>
-                    <div class="skill-pills-list">
-                        <div class="skill-pill-item">
-                            <i class='bx bx-check-circle'></i>
-                            <div>
-                                <strong>Data Analysis</strong>
-                                <small>Excel, Power BI, Google Sheets</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-check-circle'></i>
-                            <div>
-                                <strong>Data Processing & Visualization</strong>
-                                <small>Pivot Table, Lookup, Dashboard, Reporting</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-check-circle'></i>
-                            <div>
-                                <strong>Supply Chain & Production</strong>
-                                <small>Supply Chain & Production Management</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-check-circle'></i>
-                            <div>
-                                <strong>K3</strong>
-                                <small>K3 Lingkungan Kerja & Risk Identification</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-check-circle'></i>
-                            <div>
-                                <strong>Office & Design</strong>
-                                <small>Microsoft Office, Canva, CorelDraw</small>
-                            </div>
-                        </div>
+            <!-- 1 Single Card Elevated Container -->
+            <div class="skills-single-card">
+                
+                <!-- Baris Atas: Hard Skills -->
+                <div class="skills-group-row">
+                    <h3 class="skills-group-title">
+                        <i class='bx bx-laptop'></i>
+                        <span data-i18n="skills_hard_title">Hard Skills</span>
+                    </h3>
+                    <div class="skills-badge-flex">
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h1">Data Analysis (Excel, Power BI, Google Sheets)</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h2">Data Processing & Visualization (Pivot Table, Lookup, Reporting)</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h3">Supply Chain & Production Management</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h4">K3 Lingkungan Kerja & Risk Identification</span></span>
+                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h5">Microsoft Office, Canva & CorelDraw</span></span>
                     </div>
                 </div>
 
-                <!-- Soft Skills -->
-                <div class="skills-column glass-card">
-                    <h3><i class='bx bx-brain'></i> <span>Soft Skills</span></h3>
-                    <div class="skill-pills-list">
-                        <div class="skill-pill-item">
-                            <i class='bx bx-star'></i>
-                            <div>
-                                <strong>Kemampuan Analitis</strong>
-                                <small>Analytical Thinking & Operational Risk Identification</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-star'></i>
-                            <div>
-                                <strong>Teliti & Detail</strong>
-                                <small>Detail-Oriented & High Precision</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-star'></i>
-                            <div>
-                                <strong>Komunikasi</strong>
-                                <small>Professional Communication & Empathy</small>
-                            </div>
-                        </div>
-                        <div class="skill-pill-item">
-                            <i class='bx bx-star'></i>
-                            <div>
-                                <strong>Kolaborasi & Kerja Sama Tim</strong>
-                                <small>Teamwork & Cross-functional Collaboration</small>
-                            </div>
-                        </div>
+                <!-- Baris Bawah: Soft Skills -->
+                <div class="skills-group-row" style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(44, 39, 36, 0.08);">
+                    <h3 class="skills-group-title">
+                        <i class='bx bx-brain'></i>
+                        <span data-i18n="skills_soft_title">Soft Skills</span>
+                    </h3>
+                    <div class="skills-badge-flex">
+                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s1">Kemampuan Analitis & Operational Risk</span></span>
+                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s2">Teliti & Detail (High Precision)</span></span>
+                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s3">Komunikasi Profesional & Empati</span></span>
+                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s4">Kolaborasi & Kerja Sama Tim (Cross-Functional)</span></span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="contact-section" id="contact">
-        <!-- Contact Section Data Growth Target Silhouette -->
-        <svg class="section-silhouette silh-contact-bg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="200" cy="200" r="150" stroke="currentColor" stroke-width="2" stroke-dasharray="10 10"/>
-            <circle cx="200" cy="200" r="95" stroke="currentColor" stroke-width="2"/>
-            <path d="M160 200 L190 230 L250 170" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+    <!-- SECTION 5 (#contact): MINIMALIST ELEVATED CONTACT CARD -->
+    <section id="contact" style="padding-bottom: 6rem;">
+        <!-- Decorative Pie Chart Silhouette Right -->
+        <div class="sec-bg-arch arch-right">
+            <svg viewBox="0 0 200 200" class="pie-chart-svg">
+                <path d="M100,100 L100,10 A90,90 0 0,1 190,129 Z" fill="var(--accent-arch)" opacity="0.45" />
+                <path d="M100,100 L190,129 A90,90 0 0,1 10,100 Z" fill="var(--accent-arch)" opacity="0.32" />
+                <path d="M100,100 L10,100 A90,90 0 0,1 47,27 Z" fill="var(--accent-arch)" opacity="0.22" />
+                <path d="M100,100 L47,27 A90,90 0 0,1 100,10 Z" fill="var(--accent-arch)" opacity="0.5" />
+                <circle cx="100" cy="100" r="42" fill="var(--bg-primary)" />
+            </svg>
+        </div>
 
         <div class="container">
-            <div class="section-header text-center">
-                <span class="section-subtitle" data-i18n="contact_subtitle">KONEKSI & KOLABORASI</span>
-                <h2 class="section-title" data-i18n="contact_title">Mari Terhubung & Bekerja Sama</h2>
-                <div class="section-line"></div>
-            </div>
+            <div class="contact-wide-card">
+                <div class="contact-wide-header">
+                    <h3 data-i18n="contact_info_title">Informasi Kontak & Kolaborasi</h3>
+                    <p data-i18n="contact_info_desc">
+                        Saya terbuka untuk peluang karir, posisi manajemen operasi, administrasi keuangan, quality control, maupun kerja sama profesional.
+                    </p>
+                </div>
 
-            <div class="contact-card-centered glass-card">
-                <h3 data-i18n="contact_info_title">Informasi Kontak</h3>
-                <p data-i18n="contact_info_desc">
-                    Saya terbuka untuk peluang karir, posisi manajemen operasi, administrasi keuangan, quality control, maupun kerja sama profesional.
-                </p>
-
-                <div class="contact-grid-clean">
-                    <div class="c-item">
-                        <div class="c-icon"><i class='bx bx-envelope'></i></div>
-                        <div>
-                            <small>Email</small>
-                            <strong><a href="mailto:deaandini83@gmail.com">deaandini83@gmail.com</a></strong>
-                        </div>
+                <div class="contact-items-grid">
+                    <div class="contact-tile">
+                        <div class="contact-icon-box"><i class='bx bx-envelope'></i></div>
+                        <strong><a href="mailto:deaandini83@gmail.com">deaandini83@gmail.com</a></strong>
                     </div>
-                    <div class="c-item">
-                        <div class="c-icon"><i class='bx bx-map'></i></div>
-                        <div>
-                            <small data-i18n="c_location">Lokasi</small>
-                            <strong>Bandung, Jawa Barat</strong>
-                        </div>
+                    <div class="contact-tile">
+                        <div class="contact-icon-box"><i class='bx bx-map'></i></div>
+                        <strong data-i18n="c_location_val">Bandung, Jawa Barat</strong>
                     </div>
-                    <div class="c-item">
-                        <div class="c-icon"><i class='bx bxl-linkedin'></i></div>
-                        <div>
-                            <small>LinkedIn</small>
-                            <strong><a href="https://www.linkedin.com/in/dea-putri-andini-5ab1a3401/" target="_blank" rel="noopener noreferrer">Deaputriandini-LinkedIn</a></strong>
-                        </div>
+                    <div class="contact-tile">
+                        <div class="contact-icon-box"><i class='bx bxl-linkedin'></i></div>
+                        <strong><a href="https://www.linkedin.com/in/dea-putri-andini-5ab1a3401/" target="_blank" rel="noopener noreferrer">Deaputriandini-LinkedIn</a></strong>
                     </div>
                 </div>
             </div>
@@ -642,7 +544,7 @@
     <footer class="footer">
         <div class="container footer-container">
             <div class="footer-text">
-                &copy; 2026 <strong>Dea Putri Andini</strong>. All rights reserved.
+                &copy; 2026 <strong>Dea Putri Andini</strong>. <span data-i18n="footer_rights">All rights reserved.</span>
             </div>
             <a href="#" class="back-to-top" aria-label="Back to top">
                 <i class='bx bx-up-arrow-alt'></i>
@@ -651,76 +553,71 @@
     </footer>
 
     <!-- Modals for Experience Details -->
-    <!-- Modal 1: Indogarment -->
     <div class="modal" id="modal-p1">
         <div class="modal-overlay"></div>
-        <div class="modal-content glass-card">
+        <div class="modal-content">
             <button class="modal-close"><i class='bx bx-x'></i></button>
             <div class="modal-header">
-                <span class="modal-tag">CV Indogarment Pasir Honje Lamping – Bandung (Nov 2025 – Feb 2026)</span>
-                <h2>Asisten Kepala Produksi</h2>
+                <span class="modal-tag" data-i18n="modal1_tag">CV Indogarment Pasir Honje Lamping – Bandung (Nov 2025 – Feb 2026)</span>
+                <h2 data-i18n="exp1_title">Asisten Kepala Produksi</h2>
             </div>
             <div class="modal-body">
-                <h4>Deskripsi & Tanggung Jawab:</h4>
+                <h4 data-i18n="modal_desc_label">Deskripsi & Tanggung Jawab:</h4>
                 <ul>
-                    <li>Mengobservasi dan menganalisis alur produksi garmen dari cutting, sablon/bordir, jahit, QC hingga finishing.</li>
-                    <li>Memantau kualitas produk dan melakukan QC untuk memastikan kesesuaian dengan standar perusahaan.</li>
-                    <li>Mengidentifikasi risiko dan kendala operasional, seperti cacat bahan, kesalahan produksi, kerusakan mesin, dan keterlambatan.</li>
-                    <li>Mengolah data produksi menggunakan Microsoft Excel serta berkoordinasi dengan tim produksi dalam evaluasi kualitas dan operasional.</li>
+                    <li><span data-i18n="exp1_bullet_1">Mengobservasi & menganalisis alur produksi garmen (cutting, sablon/bordir, jahit, QC, finishing).</span></li>
+                    <li><span data-i18n="exp1_bullet_2">Memantau kualitas produk & melakukan QC sesuai standar perusahaan.</span></li>
+                    <li><span data-i18n="exp1_bullet_3">Mengidentifikasi risiko operasional (cacat bahan, kerusakan mesin, keterlambatan).</span></li>
+                    <li><span data-i18n="exp1_bullet_4">Mengolah data produksi dengan MS Excel & berkoordinasi dalam evaluasi operasional.</span></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Modal 2: DP3A -->
     <div class="modal" id="modal-p2">
         <div class="modal-overlay"></div>
-        <div class="modal-content glass-card">
+        <div class="modal-content">
             <button class="modal-close"><i class='bx bx-x'></i></button>
             <div class="modal-header">
-                <span class="modal-tag">DP3A Kota Bandung (Februari – Juli 2025)</span>
-                <h2>Unit Kepegawaian</h2>
+                <span class="modal-tag" data-i18n="modal2_tag">DP3A Kota Bandung (Februari – Juli 2025)</span>
+                <h2 data-i18n="exp2_title">Unit Kepegawaian</h2>
             </div>
             <div class="modal-body">
-                <h4>Deskripsi & Tanggung Jawab:</h4>
+                <h4 data-i18n="modal_desc_label">Deskripsi & Tanggung Jawab:</h4>
                 <ul>
-                    <li>Mengelola administrasi penggajian dan tunjangan pegawai (PNS, PPPK, dan Honorarium).</li>
-                    <li>Menyusun LPJ keuangan bulanan, triwulan, dan tahunan serta mengelola administrasi dan arsip dokumen.</li>
-                    <li>Mengelola administrasi, kearsipan, klasifikasi, penataan, serta digitalisasi dokumen.</li>
-                    <li>Mendukung pelayanan dan kegiatan sosialisasi perlindungan perempuan dan anak dengan memberikan respons yang empatik terhadap keluhan klien.</li>
-                    <li>Membantu pemeliharaan inventaris dan pencatatan Barang Milik Daerah (BMD), serta berpartisipasi dalam kegiatan operasional dan kepanitiaan instansi.</li>
+                    <li><span data-i18n="exp2_bullet_1">Mengelola administrasi penggajian & tunjangan (PNS, PPPK, Honorarium).</span></li>
+                    <li><span data-i18n="exp2_bullet_2">Menyusun LPJ keuangan bulanan, triwulan, & tahunan.</span></li>
+                    <li><span data-i18n="exp2_bullet_3">Mengelola kearsipan, klasifikasi, penataan, & digitalisasi dokumen.</span></li>
+                    <li><span data-i18n="exp2_bullet_4">Pelayanan & sosialisasi perlindungan perempuan & anak secara empatik.</span></li>
+                    <li><span data-i18n="exp2_bullet_5">Membantu pemeliharaan inventaris & pencatatan Barang Milik Daerah (BMD).</span></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Modal 3: PT SAT -->
     <div class="modal" id="modal-p3">
         <div class="modal-overlay"></div>
-        <div class="modal-content glass-card">
+        <div class="modal-content">
             <button class="modal-close"><i class='bx bx-x'></i></button>
             <div class="modal-header">
-                <span class="modal-tag">PT. Sumber Alfaria Trijaya Tbk – Bengkulu (Januari – April 2019)</span>
-                <h2>Admin</h2>
+                <span class="modal-tag" data-i18n="modal3_tag">PT. Sumber Alfaria Trijaya Tbk – Bengkulu (Januari – April 2019)</span>
+                <h2 data-i18n="exp3_title">Admin</h2>
             </div>
             <div class="modal-body">
-                <h4>Deskripsi & Tanggung Jawab:</h4>
+                <h4 data-i18n="modal_desc_label">Deskripsi & Tanggung Jawab:</h4>
                 <ul>
-                    <li>Mengelola stok dan inventaris toko secara efisien.</li>
-                    <li>Melakukan pencatatan dan monitoring keluar-masuk barang.</li>
-                    <li>Memastikan ketersediaan dan kesesuaian stok barang.</li>
-                    <li>Menginput dan memperbarui data administrasi serta laporan penjualan.</li>
-                    <li>Menganalisis data penjualan untuk mendukung pengambilan keputusan.</li>
+                    <li><span data-i18n="exp3_bullet_1">Mengelola stok dan inventaris toko secara efisien.</span></li>
+                    <li><span data-i18n="exp3_bullet_2">Pencatatan & monitoring keluar-masuk barang serta kesesuaian stok.</span></li>
+                    <li><span data-i18n="exp3_bullet_3">Menginput & memperbarui data administrasi serta laporan penjualan.</span></li>
+                    <li><span data-i18n="exp3_bullet_4">Menganalisis data penjualan untuk mendukung pengambilan keputusan.</span></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <!-- Toast Notification Container -->
+    <!-- Toast Container -->
     <div class="toast-container" id="toast-container"></div>
 
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
-
