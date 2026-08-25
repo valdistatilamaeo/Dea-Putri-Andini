@@ -934,20 +934,24 @@ section {
     margin: 0 auto 2.5rem auto;
     border: 1px solid var(--border-card);
     position: relative;
-    text-align: left;
+    text-align: center;
 }
 
 .quote-large-icon {
     font-size: 2.2rem;
     color: var(--text-muted);
     margin-bottom: 0.75rem;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .quote-full-card p {
     font-size: 1.02rem;
     line-height: 1.75;
     color: var(--text-secondary);
+    text-align: center;
 }
 
 /* 3 Pillars Grid */
