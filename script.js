@@ -4,15 +4,16 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+    initPreloader();
     initAnalyticsCanvas60FPS();
     initTheme();
     initLanguage();
     initNavigation();
-    initStatCounters();
     initScrollReveal();
     initProjectFilter();
     initModals();
     initContactForm();
+    initLanyardCard3D();
 });
 
 /* --------------------------------------------------------------------------
@@ -206,6 +207,14 @@ const translations = {
         about_subtitle: "PROFIL PROFESIONAL",
         about_title: "Lulusan Manajemen | Operasi & Rantai Pasok | Manajemen Keuangan & Produksi | Analisis Data | Pengendalian Mutu",
         about_full_summary: "Lulusan Sarjana Manajemen Operasi dengan pengalaman magang dalam administrasi keuangan, pengelolaan data karyawan, pengarsipan dokumen, dan penyusunan laporan. Memiliki pengalaman observasi proses produksi garment, pemantauan kualitas, identifikasi risiko operasional, serta membantu proses QC dari produksi hingga finishing. Komunikatif, teliti, detail, dan mampu bekerja individu maupun tim.",
+        tech_stack_subtitle: "PERANGKAT LUNAK & ANALISIS TOOLS",
+        tech_stack_title: "Keahlian Perangkat Lunak & Tools",
+        tool_excel_desc: "Analisis Data, VLOOKUP, Pivot Table & Laporan Produksi",
+        tool_powerbi_desc: "Visualisasi Business Intelligence & Dashboard Interaktif",
+        tool_sheets_desc: "Pengolahan Data Cloud & Sistem Pengarsipan Digital",
+        tool_word_desc: "Penyusunan LPJ Keuangan & Dokumentasi Perkantoran",
+        tool_canva_desc: "Desain Visual, Tata Letak Produksi & Media Visual",
+        tool_risk_desc: "Standar K3 Lingkungan Kerja & Manajemen Mutu (QC)",
         commitment_title: "KOMITMEN TERHADAP KUALITAS & PRESISI OPERASIONAL",
         card1_title: "QC & Pengendalian Mutu",
         card1_desc: "Mengobservasi alur produksi garmen (cutting, sablon, jahit, QC, finishing) & identifikasi risiko operasional.",
@@ -297,7 +306,9 @@ const translations = {
         modal1_tag: "CV Indogarment Pasir Honje Lamping – Bandung (Nov 2025 – Feb 2026)",
         modal2_tag: "DP3A Kota Bandung (Februari – Juli 2025)",
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (Januari – April 2019)",
-        modal_desc_label: "Deskripsi & Tanggung Jawab:"
+        modal_desc_label: "Deskripsi & Tanggung Jawab:",
+        preloader_text: "Memuat Portofolio...",
+        preloader_subtitle: "Memuat Web Portofolio..."
     },
     en: {
         nav_about: "About",
@@ -314,6 +325,14 @@ const translations = {
         about_subtitle: "PROFESSIONAL PROFILE",
         about_title: "Management Graduate | Operations & Supply Chain | Financial & Production Management | Data Analysis | Quality Control",
         about_full_summary: "Bachelor's graduate in Operations Management with internship experience in financial administration, employee data management, document archiving, and report preparation. Possesses experience observing garment production workflows, quality monitoring, operational risk identification, and assisting QC from production to finishing. Communicative, detail-oriented, and able to work independently or in a team.",
+        tech_stack_subtitle: "SOFTWARE & ANALYTICAL TOOLS",
+        tech_stack_title: "Software & Toolset Expertise",
+        tool_excel_desc: "Data Analysis, VLOOKUP, Pivot Tables & Production Reporting",
+        tool_powerbi_desc: "Interactive Business Intelligence & Dashboard Visualization",
+        tool_sheets_desc: "Cloud Data Processing & Digital Archiving Systems",
+        tool_word_desc: "Financial Accountability & Official Documentation",
+        tool_canva_desc: "Visual Design, Production Layouts & Media Assets",
+        tool_risk_desc: "Workplace HSE, Risk ID & Quality Control Standards",
         commitment_title: "COMMITMENT TO QUALITY & OPERATIONAL PRECISION",
         card1_title: "QC & Quality Control",
         card1_desc: "Observed garment production processes (cutting, printing, sewing, QC, finishing) & identified operational risks.",
@@ -405,29 +424,82 @@ const translations = {
         modal1_tag: "CV Indogarment Pasir Honje Lamping – Bandung (Nov 2025 – Feb 2026)",
         modal2_tag: "DP3A Bandung City (February – July 2025)",
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (January – April 2019)",
-        modal_desc_label: "Description & Responsibilities:"
+        modal_desc_label: "Description & Responsibilities:",
+        preloader_text: "Loading Portfolio...",
+        preloader_subtitle: "Loading Web Portfolio..."
     }
 };
 
+function initPreloader() {
+    const preloader = document.getElementById('preloader');
+    const bar = document.getElementById('preloaderBar');
+    const percentTxt = document.getElementById('preloaderPercent');
+    if (!preloader) return;
+
+    let currentPercent = 0;
+    const startTime = performance.now();
+    const totalDuration = 2400; // 2.4 seconds smooth loading duration
+
+    function step(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / totalDuration, 1);
+        
+        // Smooth Cubic Ease-Out
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+        currentPercent = Math.floor(easeProgress * 100);
+
+        if (bar) bar.style.width = currentPercent + '%';
+        if (percentTxt) percentTxt.textContent = currentPercent + '%';
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            if (bar) bar.style.width = '100%';
+            if (percentTxt) percentTxt.textContent = '100%';
+
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+                // Trigger Hero Stat Counters Count-Up AFTER Preloader Starts Sliding Up!
+                setTimeout(() => {
+                    initStatCounters();
+                }, 200);
+
+                setTimeout(() => {
+                    if (preloader.parentNode) {
+                        preloader.style.display = 'none';
+                    }
+                }, 800);
+            }, 350);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
 function initLanguage() {
-    const langBtn = document.getElementById('lang-toggle');
-    const langText = document.getElementById('lang-text');
-    let currentLang = localStorage.getItem('dpa_lang') || 'id';
+    const langBtns = document.querySelectorAll('.lang-pill-btn');
+    let currentLang = localStorage.getItem('dpa_lang') || 'en';
 
     applyLanguage(currentLang);
 
-    if (langBtn) {
-        langBtn.addEventListener('click', () => {
-            currentLang = currentLang === 'id' ? 'en' : 'id';
+    langBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const lang = btn.getAttribute('data-lang');
+            currentLang = lang;
             localStorage.setItem('dpa_lang', currentLang);
             applyLanguage(currentLang);
         });
-    }
+    });
 
     function applyLanguage(lang) {
-        if (langText) {
-            langText.textContent = lang === 'id' ? 'EN' : 'ID';
-        }
+        langBtns.forEach(btn => {
+            if (btn.getAttribute('data-lang') === lang) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
@@ -580,7 +652,7 @@ function initStatCounters() {
    6. Scroll Reveal Engine
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.slide-card-box, .cert-tile-compact, .timeline-box-card, .contact-wide-card, .skills-single-card, .skill-chip-pill, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile');
+    const revealElements = document.querySelectorAll('.slide-card-box, .cert-tile-compact, .timeline-box-card, .contact-wide-card, .skills-single-card, .skill-chip-pill, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section');
 
     revealElements.forEach(el => {
         el.style.opacity = '0';
@@ -616,7 +688,7 @@ function initScrollReveal() {
    -------------------------------------------------------------------------- */
 function initProjectFilter() {
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    const projectCards = document.querySelectorAll('.timeline-item-centered, .project-card');
 
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -700,3 +772,167 @@ function showToast(message) {
         toast.remove();
     }, 4000);
 }
+
+/* --------------------------------------------------------------------------
+   10. Interactive 3D Lanyard & ID Card Drag, Cursor Tracking & Spring Physics Engine
+   -------------------------------------------------------------------------- */
+function initLanyardCard3D() {
+    const wrapper = document.getElementById('lanyardWrapper');
+    const assembly = document.getElementById('lanyardCardAssembly');
+    const card = document.getElementById('minimalIdCard');
+    const strapLeft = document.querySelector('.strap-ribbon.strap-left');
+    const strapRight = document.querySelector('.strap-ribbon.strap-right');
+    const glare = document.getElementById('badgeHoloGlare');
+
+    if (!wrapper || !assembly) return;
+
+    let isHovered = false;
+    let isDragging = false;
+    let dragStartX = 0, dragStartY = 0;
+    let startTargetX = 0, startTargetY = 0;
+    let targetX = 0, targetY = 0;
+    let currentX = 0, currentY = 0;
+    let velocityX = 0, velocityY = 0;
+    let animFrameId = null;
+
+    // Smooth Lerp & Spring Oscillation Physics Loop
+    function updatePhysics() {
+        if (!isHovered && !isDragging) {
+            // Spring decay back to center
+            const forceX = (0 - currentX) * 0.1;
+            const forceY = (0 - currentY) * 0.1;
+            velocityX = (velocityX + forceX) * 0.78;
+            velocityY = (velocityY + forceY) * 0.78;
+
+            currentX += velocityX;
+            currentY += velocityY;
+
+            if (Math.abs(currentX) < 0.005 && Math.abs(currentY) < 0.005 && Math.abs(velocityX) < 0.005) {
+                currentX = 0;
+                currentY = 0;
+                assembly.classList.remove('interactive-mode');
+                assembly.style.transform = '';
+                if (strapLeft) strapLeft.style.transform = '';
+                if (strapRight) strapRight.style.transform = '';
+                if (glare) glare.style.opacity = '0';
+                return;
+            }
+        } else {
+            currentX += (targetX - currentX) * 0.18;
+            currentY += (targetY - currentY) * 0.18;
+        }
+
+        // Subtle, Elegant 3D Rotation & Subtle Translation Dynamics
+        const rotateX = currentY * -8;
+        const rotateY = currentX * 10;
+        const rotateZ = currentX * 3;
+        const translateX = currentX * 12;
+        const translateY = currentY * 8;
+
+        assembly.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) rotateZ(${rotateZ}deg) translate3d(${translateX}px, ${translateY}px, 15px)`;
+
+        // Flex & stretch strap ribbons dynamically when pulled downward
+        if (strapLeft) {
+            const leftRot = 24 + currentX * 10;
+            const stretchY = 1 + Math.max(0, currentY * 0.45);
+            strapLeft.style.transform = `rotate(${leftRot}deg) scaleY(${stretchY})`;
+        }
+        if (strapRight) {
+            const rightRot = -24 + currentX * 10;
+            const stretchY = 1 + Math.max(0, currentY * 0.45);
+            strapRight.style.transform = `rotate(${rightRot}deg) scaleY(${stretchY})`;
+        }
+
+        // Delicate Specular Holographic Glare Sheen Highlight (Kilau Tipis)
+        if (glare) {
+            const glareX = Math.max(10, Math.min(90, 50 + currentX * 40));
+            const glareY = Math.max(10, Math.min(90, 50 + currentY * 40));
+            const opacity = (isHovered || isDragging) ? Math.min(0.35, Math.abs(currentX) * 0.3 + Math.abs(currentY) * 0.3 + 0.15) : 0;
+            glare.style.opacity = opacity.toString();
+            glare.style.background = `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(255, 255, 255, 0.45) 0%, rgba(245, 158, 11, 0.18) 35%, transparent 70%)`;
+        }
+
+        animFrameId = requestAnimationFrame(updatePhysics);
+    }
+
+    function startPhysics() {
+        assembly.classList.add('interactive-mode');
+        cancelAnimationFrame(animFrameId);
+        updatePhysics();
+    }
+
+    const heroCol = wrapper.closest('.hero-photo-col') || wrapper;
+
+    // Mouse Hover Dynamics
+    heroCol.addEventListener('mouseenter', () => {
+        isHovered = true;
+        startPhysics();
+    });
+
+    heroCol.addEventListener('mousemove', (e) => {
+        if (isDragging) return;
+        isHovered = true;
+        startPhysics();
+        const rect = heroCol.getBoundingClientRect();
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+
+        targetX = (mouseX / rect.width - 0.5) * 2;
+        targetY = (mouseY / rect.height - 0.5) * 2;
+    });
+
+    heroCol.addEventListener('mouseleave', () => {
+        if (!isDragging) {
+            isHovered = false;
+            targetX = 0;
+            targetY = 0;
+        }
+    });
+
+    // 3D Interactive Mouse/Touch Drag Physics
+    function onPointerDown(e) {
+        isDragging = true;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        dragStartX = clientX;
+        dragStartY = clientY;
+        startTargetX = currentX;
+        startTargetY = currentY;
+
+        startPhysics();
+        assembly.classList.add('dragging');
+    }
+
+    function onPointerMove(e) {
+        if (!isDragging) return;
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+        const deltaX = (clientX - dragStartX) / 90;
+        const deltaY = (clientY - dragStartY) / 90;
+
+        targetX = Math.max(-1.8, Math.min(1.8, startTargetX + deltaX));
+        targetY = Math.max(-1.8, Math.min(1.8, startTargetY + deltaY));
+    }
+
+    function onPointerUp() {
+        if (isDragging) {
+            isDragging = false;
+            isHovered = false;
+            assembly.classList.remove('dragging');
+            velocityX = (targetX - currentX) * 0.35;
+            velocityY = (targetY - currentY) * 0.35;
+            targetX = 0;
+            targetY = 0;
+        }
+    }
+
+    assembly.addEventListener('mousedown', onPointerDown);
+    assembly.addEventListener('touchstart', onPointerDown, { passive: true });
+
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('touchend', onPointerUp);
+}
+

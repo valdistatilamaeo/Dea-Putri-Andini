@@ -20,6 +20,33 @@
 </head>
 <body>
 
+    <!-- PRELOADER OVERLAY (Konsep 1: Executive Monogram "DPA" & Gold Progress Bar) -->
+    <div id="preloader" class="preloader-overlay">
+        <div class="preloader-content">
+            <!-- Monogram Badge "DPA" -->
+            <div class="preloader-monogram-box">
+                <div class="monogram-pulse-ring"></div>
+                <div class="monogram-badge">DPA</div>
+            </div>
+
+            <!-- Brand Name & Professional Subtitle -->
+            <div class="preloader-brand">
+                <h3 class="preloader-title">DEA PUTRI ANDINI</h3>
+                <span class="preloader-subtitle" data-i18n="preloader_subtitle">Memuat Web Portofolio...</span>
+            </div>
+
+            <!-- Slim Gold Progress Bar & Percentage Counter -->
+            <div class="preloader-progress-box">
+                <div class="preloader-progress-track">
+                    <div class="preloader-progress-bar" id="preloaderBar"></div>
+                </div>
+                <div class="preloader-percent-wrap">
+                    <span id="preloaderPercent">0%</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Particle Background Canvas -->
     <canvas id="particle-canvas"></canvas>
 
@@ -42,11 +69,11 @@
             </nav>
 
             <div class="nav-controls">
-                <!-- Language Switcher -->
-                <button class="control-btn lang-btn" id="lang-toggle" title="Switch Language">
-                    <i class='bx bx-globe'></i>
-                    <span id="lang-text">EN</span>
-                </button>
+                <!-- Dual Language Switcher Pills Group (EN & ID) -->
+                <div class="lang-switcher-group" id="lang-switcher-group">
+                    <button class="lang-pill-btn active" data-lang="en" title="English">EN</button>
+                    <button class="lang-pill-btn" data-lang="id" title="Bahasa Indonesia">ID</button>
+                </div>
 
                 <!-- Mobile Menu Button -->
                 <button class="hamburger-btn" id="hamburger-btn" aria-label="Toggle Navigation">
@@ -98,14 +125,17 @@
                     <!-- Quick Stats Counters Grid (ANIMATED COUNT-UP STATS) -->
                     <div class="stats-counter-grid">
                         <div class="stat-card-item">
+                            <div class="stat-icon-badge blue"><i class='bx bx-briefcase-alt-2'></i></div>
                             <div class="stat-number" data-target="3">0</div>
                             <div class="stat-label" data-i18n="stat_projects">Pengalaman Utama</div>
                         </div>
                         <div class="stat-card-item">
+                            <div class="stat-icon-badge gold"><i class='bx bx-award'></i></div>
                             <div class="stat-number" data-target="3.70">0.00</div>
                             <div class="stat-label" data-i18n="stat_gpa">IPK Kelulusan (S1)</div>
                         </div>
                         <div class="stat-card-item">
+                            <div class="stat-icon-badge green"><i class='bx bx-badge-check'></i></div>
                             <div class="stat-number" data-target="6">0</div>
                             <div class="stat-label" data-i18n="stat_cert">Sertifikat Lisensi</div>
                         </div>
@@ -113,27 +143,170 @@
 
                     <!-- 8 Key Competencies Row under IPK/Stats -->
                     <div class="hero-key-skills-row">
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_scm">Supply Chain Management</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_fin_mgmt">Manajemen Keuangan</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_prod_mgmt">Production Management</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_data_analysis">Data Analysis</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_qc">Quality Control (QC)</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_risk_mgmt">Risk Management</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_office_admin">Administrasi Perkantoran</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="badge_asset_doc">Manajemen Asset & Dokumentasi</span></span>
+                        <span class="skill-chip-pill scm"><i class='bx bx-git-repo-forked'></i> <span data-i18n="badge_scm">Supply Chain Management</span></span>
+                        <span class="skill-chip-pill fin"><i class='bx bx-dollar-circle'></i> <span data-i18n="badge_fin_mgmt">Manajemen Keuangan</span></span>
+                        <span class="skill-chip-pill prod"><i class='bx bx-cog'></i> <span data-i18n="badge_prod_mgmt">Production Management</span></span>
+                        <span class="skill-chip-pill data"><i class='bx bx-bar-chart-alt-2'></i> <span data-i18n="badge_data_analysis">Data Analysis</span></span>
+                        <span class="skill-chip-pill qc"><i class='bx bx-badge-check'></i> <span data-i18n="badge_qc">Quality Control (QC)</span></span>
+                        <span class="skill-chip-pill risk"><i class='bx bx-shield-quarter'></i> <span data-i18n="badge_risk_mgmt">Risk Management</span></span>
+                        <span class="skill-chip-pill admin"><i class='bx bx-folder-open'></i> <span data-i18n="badge_office_admin">Administrasi Perkantoran</span></span>
+                        <span class="skill-chip-pill asset"><i class='bx bx-archive-in'></i> <span data-i18n="badge_asset_doc">Manajemen Asset & Dokumentasi</span></span>
                     </div>
                 </div>
 
-                <!-- Right Column: Square Minimal White Box Frame Photo Card with Clean Name Caption -->
+                <!-- Right Column: Compact Executive Leather Lanyard ID Card Badge -->
                 <div class="hero-photo-col">
-                    <div class="hero-photo-card">
-                        <img src="Source/Foto.png" alt="Dea Putri Andini" class="hero-photo-img">
-                        <div class="hero-photo-caption">
-                            <h3 class="hero-photo-name">Dea Putri Andini</h3>
+                    <div class="lanyard-wrapper" id="lanyardWrapper">
+                        
+                        <!-- Combined Hanging Assembly: Leather Strap + Metal Clip + Compact ID Card move dynamically together -->
+                        <div class="lanyard-card-assembly" id="lanyardCardAssembly">
+                            
+                            <!-- Executive Leather Lanyard Strap -->
+                            <div class="lanyard-strap leather-strap">
+                                <div class="strap-ribbon strap-left">
+                                    <div class="leather-stitch-line"></div>
+                                </div>
+                                <div class="strap-ribbon strap-right">
+                                    <div class="leather-stitch-line"></div>
+                                </div>
+                                <div class="strap-clip-housing">
+                                    <div class="strap-ring"></div>
+                                    <div class="strap-latch"></div>
+                                </div>
+                            </div>
+
+                            <!-- Compact Minimalist ID Card Badge -->
+                            <div class="compact-id-card" id="minimalIdCard">
+                                
+                                <!-- Punch Hole Cutout -->
+                                <div class="badge-slot-hole">
+                                    <div class="badge-slot-clip-overlay"></div>
+                                </div>
+
+                                <!-- Tulisan di Atas ID Card -->
+                                <div class="badge-top-header">
+                                    <span class="badge-top-title">OPERATIONS MANAGEMENT</span>
+                                </div>
+
+                                <!-- Foto Profile -->
+                                <div class="badge-photo-frame">
+                                    <img src="Source/Foto.png" alt="Dea Putri Andini" class="badge-photo-img">
+                                </div>
+
+                                <!-- Nama -->
+                                <div class="badge-name-block">
+                                    <h3 class="badge-person-name">Dea Putri Andini</h3>
+                                </div>
+
+                                <!-- Holographic 3D Glare Layer -->
+                                <div class="badge-holo-glare" id="badgeHoloGlare"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TECH STACK & SOFTWARE TOOLSET SECTION (Right Above Commitment) -->
+            <div class="tech-stack-showcase-section">
+                <div class="section-header-title">
+                    <span class="sec-subtitle" data-i18n="tech_stack_subtitle">PERANGKAT LUNAK & ANALISIS TOOLS</span>
+                    <h2 class="sec-title-uppercase" data-i18n="tech_stack_title">Keahlian Perangkat Lunak & Tools</h2>
+                    <div class="sec-divider-dark"></div>
+                </div>
+
+                <div class="tech-stack-grid">
+                    <div class="tech-tool-card">
+                        <div class="tool-icon-box excel" title="Microsoft Excel">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.5 3L4 5.5v21L18.5 29V3z" fill="#107C41"/>
+                                <path d="M28 6.5H18.5v19H28V6.5z" fill="#33C481"/>
+                                <path d="M7.7 11.8h2.3l1.8 3.8 1.9-3.8h2.2l-3 5.2 3.2 5.2h-2.3l-2-4.1-2 4.1H7.5l3.1-5.1-2.9-5.3z" fill="#FFF"/>
+                            </svg>
+                        </div>
+                        <div class="tool-info">
+                            <h4>Microsoft Excel</h4>
+                            <p data-i18n="tool_excel_desc">Analisis Data, VLOOKUP, Pivot Table & Laporan Produksi</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-tool-card">
+                        <div class="tool-icon-box powerbi" title="Microsoft Power BI">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="5" y="17" width="5" height="11" rx="1.5" fill="#F2C811"/>
+                                <rect x="13.5" y="11" width="5" height="17" rx="1.5" fill="#F2C811"/>
+                                <rect x="22" y="4" width="5" height="24" rx="1.5" fill="#F2C811"/>
+                            </svg>
+                        </div>
+                        <div class="tool-info">
+                            <h4>Microsoft Power BI</h4>
+                            <p data-i18n="tool_powerbi_desc">Visualisasi Business Intelligence & Dashboard Interaktif</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-tool-card">
+                        <div class="tool-icon-box sheets" title="Google Sheets & Drive">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.5 3H7.5C6.12 3 5 4.12 5 5.5v21C5 27.88 6.12 29 7.5 29h17c1.38 0 2.5-1.12 2.5-2.5V11.5L19.5 3z" fill="#0F9D58"/>
+                                <path d="M19.5 3v8.5H27L19.5 3z" fill="#B7E1CD"/>
+                                <path d="M9 16h14v2H9v-2zm0 4h14v2H9v-2zm0 4h10v2H9v-2z" fill="#FFFFFF"/>
+                            </svg>
+                        </div>
+                        <div class="tool-info">
+                            <h4>Google Sheets & Drive</h4>
+                            <p data-i18n="tool_sheets_desc">Pengolahan Data Cloud & Sistem Pengarsipan Digital</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-tool-card">
+                        <div class="tool-icon-box office" title="Microsoft Word & Office">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M18.5 3L4 5.5v21L18.5 29V3z" fill="#185ABD"/>
+                                <path d="M28 6.5H18.5v19H28V6.5z" fill="#41A5EE"/>
+                                <path d="M7 12h2.2l1.6 6.3 1.8-6.3h1.8l1.8 6.3 1.6-6.3H20l-2.4 9h-2.1l-1.7-5.9-1.7 5.9H10L7 12z" fill="#FFF"/>
+                            </svg>
+                        </div>
+                        <div class="tool-info">
+                            <h4>MS Word & LPJ System</h4>
+                            <p data-i18n="tool_word_desc">Penyusunan LPJ Keuangan & Dokumentasi Perkantoran</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-tool-card">
+                        <div class="tool-icon-box canva" title="Canva">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="13" fill="url(#canvaGrad)"/>
+                                <path d="M11 16.5c.8-1.5 2.2-2.5 3.8-2.5 1.5 0 2.5.8 2.5 2 0 2.2-3.8 2.8-3.8 4.2 0 .6.5 1 1.2 1 1.6 0 3.2-1.4 3.8-3h1.8c-.8 2.8-3.3 4.8-6 4.8-2.2 0-3.6-1.4-3.6-3.2 0-2.8 3.8-3.5 3.8-5 0-.4-.3-.7-.7-.7-1 0-1.8.8-2.3 1.7L11 16.5z" fill="#FFF"/>
+                                <defs>
+                                    <linearGradient id="canvaGrad" x1="3" y1="3" x2="29" y2="29" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#00C4CC"/>
+                                        <stop offset="1" stop-color="#7D2AE8"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="tool-info">
+                            <h4>Canva</h4>
+                            <p data-i18n="tool_canva_desc">Desain Visual, Tata Letak Produksi & Media Visual</p>
+                        </div>
+                    </div>
+
+                    <div class="tech-tool-card">
+                        <div class="tool-icon-box risk" title="Risk & QC Management">
+                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M16 4L6 8v8c0 6.6 4.3 12.8 10 14.5 5.7-1.7 10-7.9 10-14.5V8L16 4z" fill="#D4AF37"/>
+                                <path d="M14 17.5l-3-3L9.6 16 14 20.4l8-8-1.4-1.4L14 17.5z" fill="#FFF"/>
+                            </svg>
+                        </div>
+                        <div class="tool-info">
+                            <h4>Risk & QC Tools</h4>
+                            <p data-i18n="tool_risk_desc">Standar K3 Lingkungan Kerja & Manajemen Mutu (QC)</p>
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <!-- SUB-SECTION (EXACT MATCH TO SCREENSHOT 2): KOMITMEN OPERASIONAL & 3 PILAR UTAMA -->
@@ -192,7 +365,7 @@
         <div class="container">
             <div class="section-header-title">
                 <span class="sec-subtitle" data-i18n="edu_subtitle">KUALIFIKASI AKADEMIK & LISENSI RESMI</span>
-                <h2 class="sec-title" data-i18n="edu_card_title">Pendidikan Formal & Sertifikasi Resmi</h2>
+                <h2 class="sec-title" data-i18n="edu_title">Pendidikan Formal & Sertifikasi Resmi</h2>
                 <div class="sec-divider"></div>
             </div>
 
@@ -368,7 +541,7 @@
             <div class="timeline-centered">
                 
                 <!-- Timeline Item 1: Indogarment (LEFT) -->
-                <div class="timeline-item-centered left-item project-card" data-category="quality">
+                <div class="timeline-item-centered left-item" data-category="quality">
                     <div class="timeline-node"><i class='bx bx-briefcase-alt-2'></i></div>
                     <div class="timeline-box-card">
                         <div class="timeline-date-tag">
@@ -384,15 +557,11 @@
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp1_bullet_3">Mengidentifikasi risiko operasional (cacat bahan, kerusakan mesin, keterlambatan).</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp1_bullet_4">Mengolah data produksi dengan MS Excel & berkoordinasi dalam evaluasi operasional.</span></li>
                         </ul>
-                        <button class="btn btn-dark-charcoal open-modal-btn" data-modal="modal-p1" style="width: 100%; margin-top: 0.5rem; font-size: 0.88rem;">
-                            <span data-i18n="btn_detail">Rincian Lengkap</span>
-                            <i class='bx bx-right-arrow-alt'></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Timeline Item 2: DP3A (RIGHT) -->
-                <div class="timeline-item-centered right-item project-card" data-category="finance">
+                <div class="timeline-item-centered right-item" data-category="finance">
                     <div class="timeline-node"><i class='bx bx-folder-open'></i></div>
                     <div class="timeline-box-card">
                         <div class="timeline-date-tag">
@@ -409,15 +578,11 @@
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp2_bullet_4">Pelayanan & sosialisasi perlindungan perempuan & anak secara empatik.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp2_bullet_5">Membantu pemeliharaan inventaris & pencatatan Barang Milik Daerah (BMD).</span></li>
                         </ul>
-                        <button class="btn btn-dark-charcoal open-modal-btn" data-modal="modal-p2" style="width: 100%; margin-top: 0.5rem; font-size: 0.88rem;">
-                            <span data-i18n="btn_detail">Rincian Lengkap</span>
-                            <i class='bx bx-right-arrow-alt'></i>
-                        </button>
                     </div>
                 </div>
 
                 <!-- Timeline Item 3: PT SAT (LEFT) -->
-                <div class="timeline-item-centered left-item project-card" data-category="inventory">
+                <div class="timeline-item-centered left-item" data-category="inventory">
                     <div class="timeline-node"><i class='bx bx-store-alt'></i></div>
                     <div class="timeline-box-card">
                         <div class="timeline-date-tag">
@@ -433,10 +598,6 @@
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp3_bullet_3">Menginput & memperbarui data administrasi serta laporan penjualan.</span></li>
                             <li><i class='bx bx-check-circle'></i> <span data-i18n="exp3_bullet_4">Menganalisis data penjualan untuk mendukung pengambilan keputusan.</span></li>
                         </ul>
-                        <button class="btn btn-dark-charcoal open-modal-btn" data-modal="modal-p3" style="width: 100%; margin-top: 0.5rem; font-size: 0.88rem;">
-                            <span data-i18n="btn_detail">Rincian Lengkap</span>
-                            <i class='bx bx-right-arrow-alt'></i>
-                        </button>
                     </div>
                 </div>
 
@@ -474,11 +635,11 @@
                         <span data-i18n="skills_hard_title">Hard Skills</span>
                     </h3>
                     <div class="skills-badge-flex">
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h1">Data Analysis (Excel, Power BI, Google Sheets)</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h2">Data Processing & Visualization (Pivot Table, Lookup, Reporting)</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h3">Supply Chain & Production Management</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h4">K3 Lingkungan Kerja & Risk Identification</span></span>
-                        <span class="skill-chip-pill"><i class='bx bx-check-circle'></i> <span data-i18n="skill_h5">Microsoft Office, Canva & CorelDraw</span></span>
+                        <span class="skill-chip-pill h-data"><i class='bx bx-line-chart'></i> <span data-i18n="skill_h1">Data Analysis (Excel, Power BI, Google Sheets)</span></span>
+                        <span class="skill-chip-pill h-viz"><i class='bx bx-pie-chart-alt-2'></i> <span data-i18n="skill_h2">Data Processing & Visualization (Pivot Table, Lookup, Reporting)</span></span>
+                        <span class="skill-chip-pill h-scm"><i class='bx bx-git-repo-forked'></i> <span data-i18n="skill_h3">Supply Chain & Production Management</span></span>
+                        <span class="skill-chip-pill h-k3"><i class='bx bx-hard-hat'></i> <span data-i18n="skill_h4">K3 Lingkungan Kerja & Risk Identification</span></span>
+                        <span class="skill-chip-pill h-office"><i class='bx bx-palette'></i> <span data-i18n="skill_h5">Microsoft Office, Canva & CorelDraw</span></span>
                     </div>
                 </div>
 
@@ -489,10 +650,10 @@
                         <span data-i18n="skills_soft_title">Soft Skills</span>
                     </h3>
                     <div class="skills-badge-flex">
-                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s1">Kemampuan Analitis & Operational Risk</span></span>
-                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s2">Teliti & Detail (High Precision)</span></span>
-                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s3">Komunikasi Profesional & Empati</span></span>
-                        <span class="skill-chip-pill soft-pill"><i class='bx bx-star'></i> <span data-i18n="skill_s4">Kolaborasi & Kerja Sama Tim (Cross-Functional)</span></span>
+                        <span class="skill-chip-pill s-anal"><i class='bx bx-analyse'></i> <span data-i18n="skill_s1">Kemampuan Analitis & Operational Risk</span></span>
+                        <span class="skill-chip-pill s-detail"><i class='bx bx-target-lock'></i> <span data-i18n="skill_s2">Teliti & Detail (High Precision)</span></span>
+                        <span class="skill-chip-pill s-comm"><i class='bx bx-conversation'></i> <span data-i18n="skill_s3">Komunikasi Profesional & Empati</span></span>
+                        <span class="skill-chip-pill s-team"><i class='bx bx-group'></i> <span data-i18n="skill_s4">Kolaborasi & Kerja Sama Tim (Cross-Functional)</span></span>
                     </div>
                 </div>
 
@@ -524,15 +685,15 @@
 
                 <div class="contact-items-grid">
                     <div class="contact-tile">
-                        <div class="contact-icon-box"><i class='bx bx-envelope'></i></div>
+                        <div class="contact-icon-box email"><i class='bx bx-envelope'></i></div>
                         <strong><a href="mailto:deaandini83@gmail.com">deaandini83@gmail.com</a></strong>
                     </div>
                     <div class="contact-tile">
-                        <div class="contact-icon-box"><i class='bx bx-map'></i></div>
+                        <div class="contact-icon-box location"><i class='bx bx-map'></i></div>
                         <strong data-i18n="c_location_val">Bandung, Jawa Barat</strong>
                     </div>
                     <div class="contact-tile">
-                        <div class="contact-icon-box"><i class='bx bxl-linkedin'></i></div>
+                        <div class="contact-icon-box linkedin"><i class='bx bxl-linkedin'></i></div>
                         <strong><a href="https://www.linkedin.com/in/dea-putri-andini-5ab1a3401/" target="_blank" rel="noopener noreferrer">Deaputriandini-LinkedIn</a></strong>
                     </div>
                 </div>
