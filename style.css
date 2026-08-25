@@ -421,7 +421,7 @@ section {
     color: var(--text-secondary);
     margin-bottom: 2.25rem;
     max-width: 650px;
-    text-align: justify;
+    text-align: center;
 }
 
 /* Buttons Row */
@@ -1759,14 +1759,14 @@ section {
     /* 3. 8 Key Skill Badges RIGHT BELOW PHOTO */
     .hero-key-skills-row {
         order: 3 !important;
-        justify-content: center;
+        justify-content: center !important;
         margin: 0.5rem auto 1.5rem auto;
     }
 
     /* 4. Summary Paragraph BELOW BADGES */
     .hero-summary {
         order: 4 !important;
-        text-align: justify !important;
+        text-align: center !important;
         margin: 0 auto 1.5rem auto;
     }
 
