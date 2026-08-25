@@ -417,10 +417,11 @@ section {
 
 .hero-summary {
     font-size: 1.02rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: var(--text-secondary);
     margin-bottom: 2.25rem;
     max-width: 650px;
+    text-align: justify;
 }
 
 /* Buttons Row */
@@ -1765,7 +1766,7 @@ section {
     /* 4. Summary Paragraph BELOW BADGES */
     .hero-summary {
         order: 4 !important;
-        text-align: center;
+        text-align: justify !important;
         margin: 0 auto 1.5rem auto;
     }
 
