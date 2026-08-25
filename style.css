@@ -1881,13 +1881,19 @@ section {
         width: 100%;
     }
 
-    .hero-photo-card {
-        max-width: 290px;
+    .hero-photo-card,
+    .lanyard-wrapper {
+        max-width: 210px !important;
+        margin: 0 auto;
     }
 
     .hero-photo-img {
-        height: 290px;
+        height: 250px;
         object-position: center 25%;
+    }
+
+    .badge-photo-frame {
+        height: 195px !important;
     }
 
     .stats-counter-grid {
