@@ -696,7 +696,7 @@ function initStatCounters() {
    6. Scroll Reveal Engine
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.slide-card-box, .cert-tile-compact, .timeline-box-card, .contact-wide-card, .skills-single-card, .skill-chip-pill, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section');
+    const revealElements = document.querySelectorAll('.slide-card-box, .cert-tile-compact, .timeline-box-card, .contact-wide-card, .skills-single-card, .skill-chip-pill, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section, .journal-pub-card');
 
     revealElements.forEach(el => {
         el.style.opacity = '0';
