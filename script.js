@@ -312,7 +312,20 @@ const translations = {
         preloader_text: "Memuat Portofolio...",
         preloader_subtitle: "Memuat Web Portofolio...",
         exp1_gallery_title: "Dokumentasi Kegiatan QC & Produksi (2 Foto):",
-        exp2_gallery_title: "Dokumentasi Kepegawaian & Kearsipan (5 Foto):"
+        exp2_gallery_title: "Dokumentasi Kepegawaian & Kearsipan (5 Foto):",
+        journal_badge: "Jurnal Nasional Terakreditasi (Vol. 6 No. 1 2026)",
+        journal_status: "Terbit Februari 2026",
+        journal_title: "Analisis Risiko Operasional Pada Proses Produksi Melalui Penerapan Enterprise Risk Management (ERM) (Studi Kasus: UMKM Indogarment Pasir Honje Lamping)",
+        journal_author_label: "Penulis & Peneliti:",
+        journal_affiliation: "Program Studi Manajemen, Universitas Ekuitas Indonesia",
+        journal_abstract_label: "Abstrak Hasil Penelitian:",
+        journal_abstract: "Penelitian kuantitatif ini menganalisis 14 risiko operasional pada alur produksi garmen menggunakan kerangka Enterprise Risk Management (ERM). Ditemukan 4 risiko kategori High Risk (keterlambatan pesanan, kain cacat rol, kesalahan sablon/bordir, & penundaan stok) serta merumuskan strategi mitigasi operasional berbasis risk scoring & pemetaan matriks risiko.",
+        btn_journal_pdf: "Unduh Artikel Jurnal (PDF)",
+        btn_journal_loa: "Lihat Surat LOA (Diterima)",
+        btn_journal_cert: "Sertifikat Penulis",
+        nav_publication: "Publikasi Jurnal",
+        journal_sec_subtitle: "KARYA ILMIAH & PUBLIKASI NASIONAL",
+        journal_sec_title: "Publikasi Jurnal & Riset Operasional"
     },
     en: {
         nav_about: "About",
@@ -433,7 +446,20 @@ const translations = {
         preloader_text: "Loading Portfolio...",
         preloader_subtitle: "Loading Web Portfolio...",
         exp1_gallery_title: "QC & Production Activity Documentation (2 Photos):",
-        exp2_gallery_title: "Personnel & Archiving Activity Documentation (5 Photos):"
+        exp2_gallery_title: "Personnel & Archiving Activity Documentation (5 Photos):",
+        journal_badge: "Accredited National Journal (Vol. 6 No. 1 2026)",
+        journal_status: "Published February 2026",
+        journal_title: "Implementation Of Enterprise Risk Management (ERM) In Analyzing Operational Risks In The Production Process: A Case Study Of UMKM Indogarment Pasir Honje Lamping",
+        journal_author_label: "Authors & Researchers:",
+        journal_affiliation: "Study Program of Management, Universitas Ekuitas Indonesia",
+        journal_abstract_label: "Research Abstract:",
+        journal_abstract: "This quantitative study analyzes 14 operational risks in the garment production workflow using the Enterprise Risk Management (ERM) framework. Identified 4 High Risk categories (order completion delays, defective fabric rolls, printing/embroidery errors, & raw material shortages) and formulated operational mitigation strategies based on risk scoring & matrix mapping.",
+        btn_journal_pdf: "Download Journal PDF",
+        btn_journal_loa: "View LOA Letter",
+        btn_journal_cert: "Author Certificate",
+        nav_publication: "Publications",
+        journal_sec_subtitle: "SCIENTIFIC RESEARCH & NATIONAL PUBLICATION",
+        journal_sec_title: "Journal Publications & Operational Research"
     }
 };
 
@@ -513,6 +539,17 @@ function initLanguage() {
                 el.textContent = translations[lang][key];
             }
         });
+
+        const cvBtn = document.getElementById('btnDownloadCv');
+        if (cvBtn) {
+            if (lang === 'id') {
+                cvBtn.href = 'Source/CV%20Resume/CV-Dea_Putri_Andini-IN.pdf';
+                cvBtn.setAttribute('download', 'CV-Dea_Putri_Andini-IN.pdf');
+            } else {
+                cvBtn.href = 'Source/CV%20Resume/CV-Dea_Putri_Andini-EN.pdf';
+                cvBtn.setAttribute('download', 'CV-Dea_Putri_Andini-EN.pdf');
+            }
+        }
     }
 }
 
