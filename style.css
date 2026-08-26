@@ -2254,7 +2254,7 @@ section {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #2C2724;
+    background: radial-gradient(circle at center, #3B332E 0%, #1F1B19 100%);
     z-index: 999999;
     display: flex;
     align-items: center;
@@ -2277,16 +2277,16 @@ section {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 1.6rem;
-    max-width: 420px;
+    gap: 1.4rem;
+    max-width: 440px;
     width: 90%;
 }
 
 /* Monogram DPA Metallic Badge & Pulse Ring */
 .preloader-monogram-box {
     position: relative;
-    width: 90px;
-    height: 90px;
+    width: 92px;
+    height: 92px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2299,32 +2299,32 @@ section {
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    border: 2px solid rgba(197, 160, 89, 0.4);
+    border: 2px solid rgba(197, 160, 89, 0.45);
     animation: goldPulse 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
 }
 
 @keyframes goldPulse {
     0% { transform: scale(0.95); opacity: 0.8; }
-    50% { transform: scale(1.25); opacity: 0.2; }
-    100% { transform: scale(1.4); opacity: 0; }
+    50% { transform: scale(1.25); opacity: 0.25; }
+    100% { transform: scale(1.45); opacity: 0; }
 }
 
 .monogram-badge {
     position: relative;
-    width: 76px;
-    height: 76px;
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #3D3531 0%, #221D1B 100%);
+    background: linear-gradient(135deg, #4A403A 0%, #221D1B 100%);
     border: 2px solid #C5A059;
-    box-shadow: 0 0 25px rgba(197, 160, 89, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 0 25px rgba(197, 160, 89, 0.4), inset 0 0 10px rgba(0, 0, 0, 0.8);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.55rem;
+    font-size: 1.6rem;
     font-weight: 800;
     letter-spacing: 2px;
     color: #F59E0B;
-    text-shadow: 0 0 10px rgba(245, 158, 11, 0.5);
+    text-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
 }
 
 .preloader-brand {
@@ -2334,7 +2334,7 @@ section {
 }
 
 .preloader-title {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     font-weight: 800;
     letter-spacing: 3px;
     color: #FFFFFF;
@@ -2348,10 +2348,64 @@ section {
     letter-spacing: 1px;
 }
 
-/* Slim Gold Progress Bar & Counter */
+/* Full-Color Theme-Harmonized Icon Accent Pills in Preloader */
+.preloader-icon-accents {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 0.15rem 0;
+}
+
+.p-accent-pill {
+    font-size: 0.76rem;
+    font-weight: 700;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    backdrop-filter: blur(8px);
+    transition: transform 0.3s ease;
+}
+
+.p-accent-pill.p-gold {
+    background: rgba(245, 158, 11, 0.18) !important;
+    color: #F59E0B !important;
+    border: 1px solid rgba(245, 158, 11, 0.45) !important;
+    box-shadow: 0 0 14px rgba(245, 158, 11, 0.25);
+}
+.p-accent-pill.p-gold i { color: #F59E0B !important; }
+
+.p-accent-pill.p-blue {
+    background: rgba(56, 189, 248, 0.18) !important;
+    color: #38BDF8 !important;
+    border: 1px solid rgba(56, 189, 248, 0.45) !important;
+    box-shadow: 0 0 14px rgba(56, 189, 248, 0.25);
+}
+.p-accent-pill.p-blue i { color: #38BDF8 !important; }
+
+.p-accent-pill.p-green {
+    background: rgba(52, 211, 153, 0.18) !important;
+    color: #34D399 !important;
+    border: 1px solid rgba(52, 211, 153, 0.45) !important;
+    box-shadow: 0 0 14px rgba(52, 211, 153, 0.25);
+}
+.p-accent-pill.p-green i { color: #34D399 !important; }
+
+.p-accent-pill.p-rose {
+    background: rgba(251, 113, 133, 0.18) !important;
+    color: #FB7185 !important;
+    border: 1px solid rgba(251, 113, 133, 0.45) !important;
+    box-shadow: 0 0 14px rgba(251, 113, 133, 0.25);
+}
+.p-accent-pill.p-rose i { color: #FB7185 !important; }
+
+/* Elegant Neutral Monochromatic Progress Bar & Counter */
 .preloader-progress-box {
     width: 100%;
-    max-width: 280px;
+    max-width: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2360,8 +2414,8 @@ section {
 
 .preloader-progress-track {
     width: 100%;
-    height: 4px;
-    background: rgba(255, 255, 255, 0.1);
+    height: 5px;
+    background: rgba(255, 255, 255, 0.12);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
@@ -2370,17 +2424,17 @@ section {
 .preloader-progress-bar {
     width: 0%;
     height: 100%;
-    background: linear-gradient(90deg, #D97706 0%, #F59E0B 50%, #059669 100%);
+    background: linear-gradient(90deg, #FAF6EE 0%, #C5A059 50%, #FFFFFF 100%);
     border-radius: 10px;
-    box-shadow: 0 0 12px rgba(245, 158, 11, 0.6);
-    transition: width 0.1s linear;
+    box-shadow: 0 0 14px rgba(250, 246, 238, 0.7);
+    transition: width 0.12s linear;
 }
 
 .preloader-percent-wrap {
     font-size: 0.82rem;
-    font-weight: 700;
-    color: rgba(255, 255, 255, 0.8);
-    letter-spacing: 1px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 1.5px;
 }
 
 /* 7. Contact Tiles Icon Badges */

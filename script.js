@@ -33,20 +33,26 @@ function initAnalyticsCanvas60FPS() {
     let particles = [];
     const particleCount = Math.floor((width * height) / 10500);
 
-    // Dynamic Auto Rising & Falling Data Analytics Bar Chart Pillars (8 - 10 bars)
+    // Dynamic Auto Rising & Falling Data Analytics Bar Chart Pillars (Spans 100% Full Width across Page)
     let barCharts = [];
-    const barCount = Math.min(10, Math.max(6, Math.floor(width / 130)));
-    for (let i = 0; i < barCount; i++) {
-        barCharts.push({
-            x: (width / barCount) * i + (width / (barCount * 3)),
-            minHeight: Math.random() * 40 + 25,
-            maxHeight: Math.random() * 110 + 65,
-            currentHeight: 40,
-            speed: Math.random() * 0.02 + 0.01,
-            phase: Math.random() * Math.PI * 2,
-            width: Math.random() * 14 + 10
-        });
+    function createFullWidthBarCharts() {
+        barCharts = [];
+        const barCount = Math.max(12, Math.floor(width / 75));
+        const spacing = width / barCount;
+        for (let i = 0; i < barCount; i++) {
+            const barWidth = Math.min(spacing * 0.48, Math.random() * 16 + 12);
+            barCharts.push({
+                x: i * spacing + (spacing - barWidth) / 2,
+                minHeight: Math.random() * 45 + 30,
+                maxHeight: Math.random() * 140 + 75,
+                currentHeight: 45,
+                speed: Math.random() * 0.018 + 0.008,
+                phase: Math.random() * Math.PI * 2,
+                width: barWidth
+            });
+        }
     }
+    createFullWidthBarCharts();
 
     class Particle {
         constructor() {
@@ -113,20 +119,20 @@ function initAnalyticsCanvas60FPS() {
             // Soft Gradient Fill for the Bar Body
             const barGrad = ctx.createLinearGradient(bar.x, barY + bar.currentHeight, bar.x, barY);
             barGrad.addColorStop(0, 'rgba(44, 39, 36, 0.01)');
-            barGrad.addColorStop(1, 'rgba(44, 39, 36, 0.07)');
+            barGrad.addColorStop(1, 'rgba(44, 39, 36, 0.075)');
             ctx.fillStyle = barGrad;
             ctx.fillRect(bar.x, barY, bar.width, bar.currentHeight);
 
             // Top Cap Accent Line (moves up and down dynamically)
-            ctx.fillStyle = 'rgba(44, 39, 36, 0.22)';
+            ctx.fillStyle = 'rgba(44, 39, 36, 0.25)';
             ctx.fillRect(bar.x, barY - 3, bar.width, 3);
 
             // Floating Cyber Node Dot hovering 8px above the top cap
             const dotY = barY - 9;
             const dotX = bar.x + bar.width / 2;
             ctx.beginPath();
-            ctx.arc(dotX, dotY, 2, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(44, 39, 36, 0.32)';
+            ctx.arc(dotX, dotY, 2.2, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(44, 39, 36, 0.35)';
             ctx.fill();
         }
         ctx.restore();
@@ -179,6 +185,7 @@ function initAnalyticsCanvas60FPS() {
     window.addEventListener('resize', () => {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
+        createFullWidthBarCharts();
     });
 }
 
@@ -326,7 +333,9 @@ const translations = {
         btn_journal_cert: "Sertifikat Penulis",
         nav_publication: "Publikasi Jurnal",
         journal_sec_subtitle: "KARYA ILMIAH & PUBLIKASI NASIONAL",
-        journal_sec_title: "Publikasi Jurnal & Riset Operasional"
+        journal_sec_title: "Publikasi Jurnal & Riset Operasional",
+        contact_sec_subtitle: "KONTAK & KOMUNIKASI PROFESIONAL",
+        contact_sec_title: "Informasi Kontak"
     },
     en: {
         nav_about: "About",
@@ -460,7 +469,9 @@ const translations = {
         btn_journal_cert: "Author Certificate",
         nav_publication: "Publications",
         journal_sec_subtitle: "SCIENTIFIC RESEARCH & NATIONAL PUBLICATION",
-        journal_sec_title: "Journal Publications & Operational Research"
+        journal_sec_title: "Journal Publications & Operational Research",
+        contact_sec_subtitle: "CONTACT & PROFESSIONAL COMMUNICATION",
+        contact_sec_title: "Contact Information"
     }
 };
 
@@ -697,7 +708,7 @@ function initStatCounters() {
    6. Scroll Reveal Engine
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.slide-card-box, .timeline-box-card, .contact-wide-card, .skills-single-card, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section, .journal-pub-card, .sec-publication .section-header-title, .journal-abstract-box, .btn-journal-action');
+    const revealElements = document.querySelectorAll('.slide-card-box, .timeline-box-card, .contact-wide-card, .contact-tile, .skills-single-card, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section, .journal-pub-card, .sec-publication .section-header-title, #contact .section-header-title, .journal-abstract-box, .btn-journal-action');
 
     revealElements.forEach(el => {
         el.style.opacity = '0';
