@@ -417,11 +417,13 @@ section {
 
 .hero-summary {
     font-size: 1.02rem;
-    line-height: 1.75;
+    line-height: 1.8;
     color: var(--text-secondary);
     margin-bottom: 2.25rem;
-    max-width: 650px;
-    text-align: center;
+    width: 100%;
+    max-width: 100%;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Buttons Row */
@@ -1373,6 +1375,8 @@ section {
     color: var(--text-secondary);
     margin-bottom: 0.5rem;
     line-height: 1.55;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Timeline Check Icon Aligned to Dark Charcoal Theme */
@@ -1657,12 +1661,15 @@ section {
     margin-left: 1.2rem;
 }
 
-.modal-body li {
+.modal-body li,
+.modal-body p {
     list-style-type: disc;
     font-size: 0.95rem;
     color: var(--text-secondary);
     margin-bottom: 0.65rem;
     line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 /* Custom Scrollbar inside Modal */
@@ -1771,8 +1778,10 @@ section {
     /* 4. Summary Paragraph BELOW BADGES */
     .hero-summary {
         order: 4 !important;
-        text-align: center !important;
-        margin: 0 auto 1.5rem auto;
+        text-align: justify !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0 0 1.5rem 0 !important;
     }
 
     /* 5. Action Buttons */
@@ -2633,6 +2642,8 @@ section {
     color: var(--text-dark);
     line-height: 1.6;
     margin: 0;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .journal-keywords-row {
@@ -2708,29 +2719,37 @@ section {
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
-.btn-journal-action.primary {
+.btn-journal-action.pdf-btn {
     background: linear-gradient(135deg, #C5A059 0%, #D97706 100%);
     color: #FFFFFF !important;
-    box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
+    border: none;
+    box-shadow: 0 4px 14px rgba(217, 119, 6, 0.35);
+}
+.btn-journal-action.pdf-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(217, 119, 6, 0.5);
 }
 
-.btn-journal-action.primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 18px rgba(197, 160, 89, 0.45);
+.btn-journal-action.loa-btn {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    color: #FFFFFF !important;
+    border: none;
+    box-shadow: 0 4px 14px rgba(37, 99, 235, 0.35);
+}
+.btn-journal-action.loa-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.5);
 }
 
-.btn-journal-action.secondary {
-    background: #FFFFFF;
-    color: var(--text-dark) !important;
-    border: 1px solid rgba(44, 39, 36, 0.14);
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+.btn-journal-action.cert-btn {
+    background: linear-gradient(135deg, #E11D48 0%, #BE123C 100%);
+    color: #FFFFFF !important;
+    border: none;
+    box-shadow: 0 4px 14px rgba(225, 29, 72, 0.35);
 }
-
-.btn-journal-action.secondary:hover {
-    transform: translateY(-2px);
-    border-color: #C5A059;
-    color: #C5A059 !important;
-    box-shadow: 0 6px 14px rgba(44, 39, 36, 0.12);
+.btn-journal-action.cert-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(225, 29, 72, 0.5);
 }
 
 @media (max-width: 768px) {

@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initContactForm();
     initLanyardCard3D();
     initPhotoLightbox();
+    initFloatingScatterAssembleEngine();
 });
 
 /* --------------------------------------------------------------------------
@@ -696,7 +697,7 @@ function initStatCounters() {
    6. Scroll Reveal Engine
    -------------------------------------------------------------------------- */
 function initScrollReveal() {
-    const revealElements = document.querySelectorAll('.slide-card-box, .cert-tile-compact, .timeline-box-card, .contact-wide-card, .skills-single-card, .skill-chip-pill, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section, .journal-pub-card');
+    const revealElements = document.querySelectorAll('.slide-card-box, .timeline-box-card, .contact-wide-card, .skills-single-card, .stat-card-item, .hero-photo-card, .quote-full-card, .pillar-card-tile, .tech-tool-card, .tech-stack-showcase-section, .journal-pub-card, .sec-publication .section-header-title, .journal-abstract-box, .btn-journal-action');
 
     revealElements.forEach(el => {
         el.style.opacity = '0';
@@ -1019,5 +1020,165 @@ function initPhotoLightbox() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
     });
+}
+
+/* --------------------------------------------------------------------------
+   12. Floating Scatter & Magnetic Assembly Engine ("Ngacak Ngambang Lalu Menyatu")
+   Applies to:
+   - 10 Core Courses under IPK Badge (.course-10-badge)
+   - 7 Official Certifications Tiles (.cert-tile-compact)
+   - Skills Badges (.skill-chip-pill)
+   -------------------------------------------------------------------------- */
+function initFloatingScatterAssembleEngine() {
+    const courseBadges = document.querySelectorAll('.course-10-grid .course-10-badge');
+    const eduCard = document.querySelector('.course-10-grid');
+
+    const certTiles = document.querySelectorAll('.cert-grid-2col .cert-tile-compact');
+    const certCard = document.querySelector('.cert-grid-2col');
+
+    const skillChips = document.querySelectorAll('.skills-single-card .skill-chip-pill');
+    const skillsCard = document.querySelector('.skills-single-card');
+
+    const scatterOffsets = [
+        { x: -65, y: -40, r: -14 },
+        { x: 75, y: -45, r: 16 },
+        { x: -80, y: 35, r: -18 },
+        { x: 85, y: 30, r: 15 },
+        { x: -50, y: -50, r: -12 },
+        { x: 60, y: -35, r: 14 },
+        { x: -70, y: 45, r: -16 },
+        { x: 80, y: -40, r: 18 },
+        { x: -45, y: 50, r: -10 },
+        { x: 65, y: -30, r: 12 }
+    ];
+
+    function applyScatter(elements) {
+        elements.forEach((el, idx) => {
+            const offset = scatterOffsets[idx % scatterOffsets.length];
+            el.style.opacity = '0';
+            el.style.transform = `translate3d(${offset.x}px, ${offset.y}px, 0) rotate(${offset.r}deg)`;
+            el.style.transition = 'opacity 0.75s cubic-bezier(0.34, 1.56, 0.64, 1), transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            el.style.transitionDelay = `${idx * 0.07}s`;
+
+            const icon = el.querySelector('i');
+            if (icon) {
+                icon.style.transition = 'transform 0.85s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                icon.style.transform = 'scale(0.4) rotate(-30deg)';
+            }
+        });
+    }
+
+    function assembleElements(elements) {
+        elements.forEach((el) => {
+            el.style.opacity = '1';
+            el.style.transform = 'translate3d(0, 0, 0) rotate(0deg)';
+            const icon = el.querySelector('i');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
+    }
+
+    // Apply initial scattered floating state ("Ngacak ngambang")
+    if (courseBadges.length) applyScatter(courseBadges);
+    if (certTiles.length) applyScatter(certTiles);
+    if (skillChips.length) applyScatter(skillChips);
+
+    // Observer for 10 Core Value Courses under IPK Badge
+    if (eduCard && 'IntersectionObserver' in window) {
+        const eduObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    assembleElements(courseBadges);
+                    eduObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        eduObserver.observe(eduCard);
+    } else if (courseBadges.length) {
+        assembleElements(courseBadges);
+    }
+
+    // Observer for 7 Official Certifications Tiles
+    if (certCard && 'IntersectionObserver' in window) {
+        const certObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    assembleElements(certTiles);
+                    certObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        certObserver.observe(certCard);
+    } else if (certTiles.length) {
+        assembleElements(certTiles);
+    }
+
+    // Observer for Skills Badges
+    if (skillsCard && 'IntersectionObserver' in window) {
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    assembleElements(skillChips);
+                    skillObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        skillObserver.observe(skillsCard);
+    } else if (skillChips.length) {
+        assembleElements(skillChips);
+    }
+
+    // Observer for Job Description Bullets (Smooth Left-to-Right Staggered Slide-Fade Text Animation)
+    // and Photos (Magnetic Scatter & Assemble) in Work Experience Cards
+    const expTimelineCards = document.querySelectorAll('.timeline-box-card');
+    if (expTimelineCards.length && 'IntersectionObserver' in window) {
+        expTimelineCards.forEach((card) => {
+            const expBullets = card.querySelectorAll('.exp-bullet-list li');
+            const expPhotos = card.querySelectorAll('.exp-photo-thumb');
+
+            // Apply smooth slide-fade text animation setup for bullets
+            if (expBullets.length) {
+                expBullets.forEach((li, idx) => {
+                    li.style.opacity = '0';
+                    li.style.transform = 'translateX(-22px)';
+                    li.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                    li.style.transitionDelay = `${idx * 0.1}s`;
+
+                    const icon = li.querySelector('i');
+                    if (icon) {
+                        icon.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+                        icon.style.transform = 'scale(0.6)';
+                    }
+                });
+            }
+
+            // Apply magnetic scatter setup for photos
+            if (expPhotos.length) {
+                applyScatter(expPhotos);
+            }
+
+            // Observe Card to Trigger Animations
+            const expObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        if (expBullets.length) {
+                            expBullets.forEach((li) => {
+                                li.style.opacity = '1';
+                                li.style.transform = 'translateX(0)';
+                                const icon = li.querySelector('i');
+                                if (icon) icon.style.transform = 'scale(1)';
+                            });
+                        }
+                        if (expPhotos.length) {
+                            assembleElements(expPhotos);
+                        }
+                        expObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+            expObserver.observe(card);
+        });
+    }
 }
 
