@@ -2194,6 +2194,11 @@ section {
 .cert-tile-compact:nth-child(6) .cert-tile-icon { background: rgba(217, 119, 6, 0.12) !important; }
 .cert-tile-compact:nth-child(6) .cert-tile-icon i { color: #D97706 !important; }
 
+.cert-tile-compact:nth-child(7) .cert-tile-icon,
+.cert-tile-icon.toefl { background: rgba(2, 132, 199, 0.14) !important; }
+.cert-tile-compact:nth-child(7) .cert-tile-icon i,
+.cert-tile-icon.toefl i { color: #0284C7 !important; }
+
 /* 6. Section Titles & Navigation Icons */
 .skills-group-title i.bx-laptop { color: #2563EB !important; }
 .skills-group-title i.bx-brain { color: #E11D48 !important; }
