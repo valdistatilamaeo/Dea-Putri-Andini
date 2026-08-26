@@ -1129,29 +1129,12 @@ function initFloatingScatterAssembleEngine() {
         assembleElements(skillChips);
     }
 
-    // Observer for Job Description Bullets (Smooth Left-to-Right Staggered Slide-Fade Text Animation)
+    // Observer for Job Description Bullets (GPU Hardware-Accelerated 60/120 FPS Smooth Slide-Fade)
     // and Photos (Magnetic Scatter & Assemble) in Work Experience Cards
     const expTimelineCards = document.querySelectorAll('.timeline-box-card');
     if (expTimelineCards.length && 'IntersectionObserver' in window) {
         expTimelineCards.forEach((card) => {
-            const expBullets = card.querySelectorAll('.exp-bullet-list li');
             const expPhotos = card.querySelectorAll('.exp-photo-thumb');
-
-            // Apply smooth slide-fade text animation setup for bullets
-            if (expBullets.length) {
-                expBullets.forEach((li, idx) => {
-                    li.style.opacity = '0';
-                    li.style.transform = 'translateX(-22px)';
-                    li.style.transition = 'opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-                    li.style.transitionDelay = `${idx * 0.1}s`;
-
-                    const icon = li.querySelector('i');
-                    if (icon) {
-                        icon.style.transition = 'transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
-                        icon.style.transform = 'scale(0.6)';
-                    }
-                });
-            }
 
             // Apply magnetic scatter setup for photos
             if (expPhotos.length) {
@@ -1162,14 +1145,7 @@ function initFloatingScatterAssembleEngine() {
             const expObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        if (expBullets.length) {
-                            expBullets.forEach((li) => {
-                                li.style.opacity = '1';
-                                li.style.transform = 'translateX(0)';
-                                const icon = li.querySelector('i');
-                                if (icon) icon.style.transform = 'scale(1)';
-                            });
-                        }
+                        entry.target.classList.add('revealed');
                         if (expPhotos.length) {
                             assembleElements(expPhotos);
                         }
