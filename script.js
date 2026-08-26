@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initModals();
     initContactForm();
     initLanyardCard3D();
+    initPhotoLightbox();
 });
 
 /* --------------------------------------------------------------------------
@@ -309,7 +310,9 @@ const translations = {
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (Januari – April 2019)",
         modal_desc_label: "Deskripsi & Tanggung Jawab:",
         preloader_text: "Memuat Portofolio...",
-        preloader_subtitle: "Memuat Web Portofolio..."
+        preloader_subtitle: "Memuat Web Portofolio...",
+        exp1_gallery_title: "Dokumentasi Kegiatan QC & Produksi (2 Foto):",
+        exp2_gallery_title: "Dokumentasi Kepegawaian & Kearsipan (5 Foto):"
     },
     en: {
         nav_about: "About",
@@ -428,7 +431,9 @@ const translations = {
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (January – April 2019)",
         modal_desc_label: "Description & Responsibilities:",
         preloader_text: "Loading Portfolio...",
-        preloader_subtitle: "Loading Web Portfolio..."
+        preloader_subtitle: "Loading Web Portfolio...",
+        exp1_gallery_title: "QC & Production Activity Documentation (2 Photos):",
+        exp2_gallery_title: "Personnel & Archiving Activity Documentation (5 Photos):"
     }
 };
 
@@ -936,5 +941,46 @@ function initLanyardCard3D() {
     window.addEventListener('touchmove', onPointerMove, { passive: true });
     window.addEventListener('mouseup', onPointerUp);
     window.addEventListener('touchend', onPointerUp);
+}
+
+/* --------------------------------------------------------------------------
+   11. Interactive Activity Photo Lightbox Preview Engine
+   -------------------------------------------------------------------------- */
+function initPhotoLightbox() {
+    const lightbox = document.getElementById('photoLightboxModal');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const closeBtn = document.getElementById('lightboxCloseBtn');
+    const thumbs = document.querySelectorAll('.exp-photo-thumb');
+
+    if (!lightbox || !thumbs.length) return;
+
+    thumbs.forEach(thumb => {
+        thumb.addEventListener('click', () => {
+            const currentLang = localStorage.getItem('dpa_lang') || 'en';
+            const fullSrc = thumb.getAttribute('data-full');
+            const captionID = thumb.getAttribute('data-caption-id');
+            const captionEN = thumb.getAttribute('data-caption-en');
+            const caption = currentLang === 'id' ? (captionID || captionEN) : (captionEN || captionID);
+
+            if (lightboxImg) lightboxImg.src = fullSrc;
+            if (lightboxCaption) lightboxCaption.textContent = caption || '';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+    });
 }
 
