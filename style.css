@@ -2647,12 +2647,45 @@ section {
     color: var(--text-dark);
     background: rgba(44, 39, 36, 0.05);
     border: 1px solid rgba(44, 39, 36, 0.1);
-    padding: 0.3rem 0.75rem;
+    padding: 0.35rem 0.8rem;
     border-radius: 14px;
     display: flex;
     align-items: center;
     gap: 0.3rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
+
+.keyword-chip:hover {
+    transform: translateY(-2px);
+}
+
+.keyword-chip.erm {
+    background: rgba(217, 119, 6, 0.12) !important;
+    color: #D97706 !important;
+    border-color: rgba(217, 119, 6, 0.3) !important;
+}
+.keyword-chip.erm i { color: #D97706 !important; }
+
+.keyword-chip.risk {
+    background: rgba(225, 29, 72, 0.12) !important;
+    color: #E11D48 !important;
+    border-color: rgba(225, 29, 72, 0.3) !important;
+}
+.keyword-chip.risk i { color: #E11D48 !important; }
+
+.keyword-chip.prod {
+    background: rgba(5, 150, 105, 0.12) !important;
+    color: #059669 !important;
+    border-color: rgba(5, 150, 105, 0.3) !important;
+}
+.keyword-chip.prod i { color: #059669 !important; }
+
+.keyword-chip.matrix {
+    background: rgba(37, 99, 235, 0.12) !important;
+    color: #2563EB !important;
+    border-color: rgba(37, 99, 235, 0.3) !important;
+}
+.keyword-chip.matrix i { color: #2563EB !important; }
 
 .journal-actions-row {
     display: flex;
