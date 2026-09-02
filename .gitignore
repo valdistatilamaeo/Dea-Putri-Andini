@@ -3,8 +3,11 @@
 Thumbs.db
 desktop.ini
 
-# Editor directories
+# Editor directories & tool caches
 .vscode/
 .idea/
+.codeatlas/
 *.swp
 *.tmp
+~$*
+
