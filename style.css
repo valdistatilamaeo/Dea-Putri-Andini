@@ -3019,9 +3019,9 @@ a.contact-tile {
     box-shadow: 0 8px 20px rgba(0, 120, 212, 0.15);
 }
 
-.email-option-card.opt-yahoo:hover {
-    border-color: #6001D2;
-    box-shadow: 0 8px 20px rgba(96, 1, 210, 0.15);
+.email-option-card.opt-default:hover {
+    border-color: #4B5563;
+    box-shadow: 0 8px 20px rgba(75, 85, 99, 0.15);
 }
 
 .email-option-icon {
