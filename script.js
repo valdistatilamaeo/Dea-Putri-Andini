@@ -377,7 +377,6 @@ const translations = {
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (Januari – April 2019)",
         modal_desc_label: "Deskripsi & Tanggung Jawab:",
 
-        email_badge_click: "Kirim Pesan",
         email_modal_title: "Hubungi via Email",
         email_modal_subtitle: "Pilih aplikasi atau peramban favorit Anda untuk mengirim pesan ke <strong>deaandini83@gmail.com</strong>:",
         email_opt_gmail_desc: "Buka langsung di tab peramban Gmail",
@@ -564,7 +563,6 @@ const translations = {
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (January – April 2019)",
         modal_desc_label: "Responsibilities & Key Deliverables:",
 
-        email_badge_click: "Send Email",
         email_modal_title: "Choose Email Service",
         email_modal_subtitle: "Choose your preferred app or webmail to send a message to <strong>deaandini83@gmail.com</strong>:",
         email_opt_gmail_desc: "Compose directly in Gmail Web",
