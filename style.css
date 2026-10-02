@@ -2649,9 +2649,47 @@ section {
     padding: 0.4rem 1rem;
     border-radius: 20px;
     box-shadow: 0 4px 12px rgba(197, 160, 89, 0.3);
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.4rem;
+}
+
+.journal-sinta-badge {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #B45309;
+    background: rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(217, 119, 6, 0.3);
+    padding: 0.38rem 0.9rem;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.journal-publisher-badge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #1E40AF;
+    background: rgba(37, 99, 235, 0.08);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    padding: 0.38rem 0.9rem;
+    border-radius: 18px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.journal-vol-badge {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    background: rgba(44, 39, 36, 0.06);
+    padding: 0.35rem 0.85rem;
+    border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
 }
 
 .journal-issn {
@@ -2661,6 +2699,8 @@ section {
     background: rgba(44, 39, 36, 0.06);
     padding: 0.35rem 0.85rem;
     border-radius: 16px;
+    display: inline-flex;
+    align-items: center;
 }
 
 .journal-date-badge {
@@ -2670,7 +2710,7 @@ section {
     background: rgba(5, 150, 105, 0.1);
     padding: 0.35rem 0.9rem;
     border-radius: 16px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     gap: 0.35rem;
 }
