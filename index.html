@@ -833,9 +833,10 @@
                 </div>
 
                 <div class="contact-items-grid">
-                    <div class="contact-tile">
+                    <div class="contact-tile email-tile" id="emailContactTile" role="button" tabindex="0" title="Klik untuk opsi pengiriman email">
+                        <span class="email-tile-badge" data-i18n="email_badge_click">Kirim Pesan</span>
                         <div class="contact-icon-box email"><i class='bx bx-envelope'></i></div>
-                        <strong><a href="mailto:deaandini83@gmail.com">deaandini83@gmail.com</a></strong>
+                        <strong><a href="mailto:deaandini83@gmail.com" id="emailContactLink">deaandini83@gmail.com</a></strong>
                     </div>
                     <div class="contact-tile">
                         <div class="contact-icon-box location"><i class='bx bx-map'></i></div>
@@ -920,6 +921,96 @@
                     <li><span data-i18n="exp3_bullet_3">Menginput & memperbarui data administrasi serta laporan penjualan.</span></li>
                     <li><span data-i18n="exp3_bullet_4">Menganalisis data penjualan untuk mendukung pengambilan keputusan.</span></li>
                 </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- INTERACTIVE EMAIL CLIENT CHOOSER MODAL -->
+    <div class="modal email-chooser-modal" id="emailChooserModal">
+        <div class="modal-overlay" id="emailModalOverlay"></div>
+        <div class="modal-content email-chooser-content">
+            <button class="modal-close" id="emailModalCloseBtn" aria-label="Close Email Chooser"><i class='bx bx-x'></i></button>
+            
+            <div class="email-chooser-header">
+                <div class="email-chooser-icon-box">
+                    <i class='bx bxs-paper-plane'></i>
+                </div>
+                <h3 data-i18n="email_modal_title">Hubungi via Email</h3>
+                <p data-i18n="email_modal_subtitle">Pilih aplikasi atau peramban favorit Anda untuk mengirim pesan ke <strong>deaandini83@gmail.com</strong>:</p>
+            </div>
+
+            <div class="email-options-grid">
+                <!-- Option 1: Gmail Web -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=deaandini83@gmail.com&su=Inquiry%20%2F%20Peluang%20Kerja%20Sama%20-%20Dea%20Putri%20Andini" target="_blank" rel="noopener noreferrer" class="email-option-card opt-gmail">
+                    <div class="email-option-icon">
+                        <svg width="26" height="26" viewBox="0 0 48 48">
+                            <path fill="#4caf50" d="M45,16.2l-5,2.75l-5,4.75L35,40h7c1.66,0,3-1.34,3-3V16.2z"/>
+                            <path fill="#1e88e5" d="M3,16.2l5,2.75l5,4.75L13,40H6c-1.66,0-3-1.34-3-3V16.2z"/>
+                            <polygon fill="#e53935" points="35,11.2 24,19.45 13,11.2 12,17 13,23.7 24,31.95 35,23.7 36,17"/>
+                            <path fill="#c62828" d="M3,12.298V16.2l10,7.5V11.2L8.6,7.9C7.4,7,5.6,7.2,4.6,8.4C3.6,9.5,3,10.9,3,12.298z"/>
+                            <path fill="#fbc02d" d="M45,12.298V16.2l-10,7.5V11.2l4.4-3.3c1.2-0.9,3-0.7,4,0.5C44.4,9.5,45,10.9,45,12.298z"/>
+                        </svg>
+                    </div>
+                    <div class="email-option-text">
+                        <h4>Gmail (Web)</h4>
+                        <span data-i18n="email_opt_gmail_desc">Buka langsung di tab peramban Gmail</span>
+                    </div>
+                    <i class='bx bx-chevron-right email-option-arrow'></i>
+                </a>
+
+                <!-- Option 2: Outlook / Hotmail -->
+                <a href="https://outlook.live.com/mail/0/deeplink/compose?to=deaandini83@gmail.com&subject=Inquiry%20%2F%20Peluang%20Kerja%20Sama%20-%20Dea%20Putri%20Andini" target="_blank" rel="noopener noreferrer" class="email-option-card opt-outlook">
+                    <div class="email-option-icon">
+                        <svg width="26" height="26" viewBox="0 0 48 48">
+                            <rect width="28" height="28" x="10" y="10" fill="#0078d4" rx="4"/>
+                            <path fill="#fff" d="M33,18H15c-0.6,0-1,0.4-1,1v10c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1V19C34,18.4,33.6,18,33,18z M24,25.2l-8-5.2h16L24,25.2z"/>
+                        </svg>
+                    </div>
+                    <div class="email-option-text">
+                        <h4>Outlook / Hotmail</h4>
+                        <span data-i18n="email_opt_outlook_desc">Buka di Outlook Web Mail</span>
+                    </div>
+                    <i class='bx bx-chevron-right email-option-arrow'></i>
+                </a>
+
+                <!-- Option 3: Yahoo Mail -->
+                <a href="https://compose.mail.yahoo.com/?to=deaandini83@gmail.com&subj=Inquiry%20%2F%20Peluang%20Kerja%20Sama%20-%20Dea%20Putri%20Andini" target="_blank" rel="noopener noreferrer" class="email-option-card opt-yahoo">
+                    <div class="email-option-icon">
+                        <svg width="26" height="26" viewBox="0 0 48 48">
+                            <rect width="36" height="36" x="6" y="6" fill="#6001d2" rx="8"/>
+                            <path fill="#fff" d="M19.5 15l3.2 7.5L26 15h3.5l-5 10.5V33h-3.2v-7.5l-5-10.5h3.2z"/>
+                        </svg>
+                    </div>
+                    <div class="email-option-text">
+                        <h4>Yahoo Mail</h4>
+                        <span data-i18n="email_opt_yahoo_desc">Buka di Yahoo Mail Web</span>
+                    </div>
+                    <i class='bx bx-chevron-right email-option-arrow'></i>
+                </a>
+
+                <!-- Option 4: Default Mail App (mailto:) -->
+                <a href="mailto:deaandini83@gmail.com?subject=Inquiry%20%2F%20Peluang%20Kerja%20Sama%20-%20Dea%20Putri%20Andini" class="email-option-card opt-default">
+                    <div class="email-option-icon">
+                        <i class='bx bx-devices' style="font-size: 1.6rem; color: #4B5563;"></i>
+                    </div>
+                    <div class="email-option-text">
+                        <h4 data-i18n="email_opt_default_title">Aplikasi Email Bawaan</h4>
+                        <span data-i18n="email_opt_default_desc">Buka via Apple Mail, Windows Mail, Thunderbird, dll.</span>
+                    </div>
+                    <i class='bx bx-chevron-right email-option-arrow'></i>
+                </a>
+            </div>
+
+            <!-- Option 5: Direct Copy Email Box with Animated Button -->
+            <div class="email-copy-bar">
+                <div class="email-copy-address">
+                    <i class='bx bx-envelope'></i>
+                    <span id="copyEmailTarget">deaandini83@gmail.com</span>
+                </div>
+                <button type="button" class="btn-copy-email" id="btnCopyEmail">
+                    <i class='bx bx-copy' id="copyEmailIcon"></i>
+                    <span id="copyEmailLabel" data-i18n="email_copy_btn">Salin Email</span>
+                </button>
             </div>
         </div>
     </div>

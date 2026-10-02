@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollReveal();
     initProjectFilter();
     initModals();
+    initEmailChooserModal();
     initContactForm();
     initLanyardCard3D();
     initPhotoLightbox();
@@ -374,7 +375,19 @@ const translations = {
         modal1_tag: "CV Indogarment Pasir Honje Lamping – Bandung (Nov 2025 – Feb 2026)",
         modal2_tag: "DP3A Kota Bandung (Februari – Juli 2025)",
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (Januari – April 2019)",
-        modal_desc_label: "Deskripsi & Tanggung Jawab:"
+        modal_desc_label: "Deskripsi & Tanggung Jawab:",
+
+        email_badge_click: "Kirim Pesan",
+        email_modal_title: "Hubungi via Email",
+        email_modal_subtitle: "Pilih aplikasi atau peramban favorit Anda untuk mengirim pesan ke <strong>deaandini83@gmail.com</strong>:",
+        email_opt_gmail_desc: "Buka langsung di tab peramban Gmail",
+        email_opt_outlook_desc: "Buka di Outlook Web Mail",
+        email_opt_yahoo_desc: "Buka di Yahoo Mail Web",
+        email_opt_default_title: "Aplikasi Email Bawaan",
+        email_opt_default_desc: "Buka via Apple Mail, Windows Mail, Thunderbird, dll.",
+        email_copy_btn: "Salin Email",
+        email_copied_btn: "Tersalin!",
+        email_copied_toast: "Alamat email deaandini83@gmail.com berhasil disalin ke clipboard!"
     },
     en: {
         nav_about: "About",
@@ -549,7 +562,19 @@ const translations = {
         modal1_tag: "CV Indogarment Pasir Honje Lamping – Bandung (Nov 2025 – Feb 2026)",
         modal2_tag: "DP3A Bandung City (February – July 2025)",
         modal3_tag: "PT. Sumber Alfaria Trijaya Tbk – Bengkulu (January – April 2019)",
-        modal_desc_label: "Responsibilities & Key Deliverables:"
+        modal_desc_label: "Responsibilities & Key Deliverables:",
+
+        email_badge_click: "Send Email",
+        email_modal_title: "Choose Email Service",
+        email_modal_subtitle: "Choose your preferred app or webmail to send a message to <strong>deaandini83@gmail.com</strong>:",
+        email_opt_gmail_desc: "Compose directly in Gmail Web",
+        email_opt_outlook_desc: "Compose directly in Outlook / Hotmail Web",
+        email_opt_yahoo_desc: "Compose directly in Yahoo Mail Web",
+        email_opt_default_title: "Default Email App",
+        email_opt_default_desc: "Open via Apple Mail, Windows Mail, Thunderbird, etc.",
+        email_copy_btn: "Copy Email",
+        email_copied_btn: "Copied!",
+        email_copied_toast: "Email address deaandini83@gmail.com copied to clipboard!"
     }
 };
 
@@ -876,6 +901,91 @@ function initModals() {
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
     });
+}
+
+/* --------------------------------------------------------------------------
+   8b. Interactive Email Client Chooser Engine
+   -------------------------------------------------------------------------- */
+function initEmailChooserModal() {
+    const emailTile = document.getElementById('emailContactTile');
+    const emailLink = document.getElementById('emailContactLink');
+    const emailModal = document.getElementById('emailChooserModal');
+    const copyBtn = document.getElementById('btnCopyEmail');
+    const copyLabel = document.getElementById('copyEmailLabel');
+    const copyIcon = document.getElementById('copyEmailIcon');
+    const optionCards = document.querySelectorAll('.email-option-card');
+    const targetEmail = 'deaandini83@gmail.com';
+
+    function openEmailModal(e) {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        if (emailModal) {
+            emailModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+    }
+
+    if (emailTile) {
+        emailTile.addEventListener('click', openEmailModal);
+        emailTile.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                openEmailModal(e);
+            }
+        });
+    }
+
+    if (emailLink) {
+        emailLink.addEventListener('click', openEmailModal);
+    }
+
+    // Auto-close modal when an option is selected so the UI feels responsive
+    optionCards.forEach(card => {
+        card.addEventListener('click', () => {
+            setTimeout(() => {
+                if (emailModal) {
+                    emailModal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }, 300);
+        });
+    });
+
+    if (copyBtn) {
+        copyBtn.addEventListener('click', async (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            const currentLang = localStorage.getItem('dpa_lang') || 'en';
+            try {
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    await navigator.clipboard.writeText(targetEmail);
+                } else {
+                    const tempInput = document.createElement('input');
+                    tempInput.value = targetEmail;
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    document.execCommand('copy');
+                    document.body.removeChild(tempInput);
+                }
+
+                copyBtn.classList.add('copied');
+                if (copyIcon) copyIcon.className = 'bx bx-check';
+                if (copyLabel) copyLabel.textContent = translations[currentLang]?.email_copied_btn || (currentLang === 'id' ? 'Tersalin!' : 'Copied!');
+
+                const toastMsg = translations[currentLang]?.email_copied_toast || (currentLang === 'id' ? 'Alamat email deaandini83@gmail.com berhasil disalin ke clipboard!' : 'Email address deaandini83@gmail.com copied to clipboard!');
+                showToast(toastMsg);
+
+                setTimeout(() => {
+                    copyBtn.classList.remove('copied');
+                    if (copyIcon) copyIcon.className = 'bx bx-copy';
+                    if (copyLabel) copyLabel.textContent = translations[currentLang]?.email_copy_btn || (currentLang === 'id' ? 'Salin Email' : 'Copy Email');
+                }, 2500);
+            } catch (err) {
+                console.error('Failed to copy email:', err);
+            }
+        });
+    }
 }
 
 /* --------------------------------------------------------------------------
